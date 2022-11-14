@@ -14,6 +14,7 @@ Should have:
 -Budynki w wiosce: Ratusz, koszary, spichlerz
 
 Could have:
+-Wioski opuszczone/barbarzyńskie
 -Graficzny interfejs
 -Graficzne przeglądanie mapy
 -Graficzny podgląd wioski
