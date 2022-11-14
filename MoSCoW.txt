@@ -1,0 +1,24 @@
+Must have:
+-Wątki
+-Sieciowa komunikacja
+
+Should have:
+-Baza danych
+-Przeglądanie wioski
+-Przeglądanie innych graczy
+-Budowa/ulepszanie budynków
+-Rekrutacja wojska
+-Atakowanie innych wiosek
+-Narastające surowce
+-Prosty system ataków/obrony wioski
+-Budynki w wiosce: Ratusz, koszary, spichlerz
+
+Could have:
+-Graficzny interfejs
+-Graficzne przeglądanie mapy
+-Graficzny podgląd wioski
+-Zaawansowany system ataków/obrony wioski
+-Budynki w wiosce: Stajnia, warsztat, domy mieszkalne, źródła surowców, mur
+
+Won't have:
+-
