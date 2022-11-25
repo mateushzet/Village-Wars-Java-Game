@@ -19,4 +19,13 @@ public class Village{
 	rathaus.mine.stopProduction();
 	rathaus.timberCamp.stopProduction();
 	}
+	
+	public void attackVillage(Village attacker, Village defender){
+	if(attacker.rathaus.barracks.calculateAttackPower() > defender.rathaus.barracks.calculateDefencePower()){
+		defender.rathaus.barracks.killAllSoliders();
+		} else{
+				attacker.rathaus.barracks.killAllSoliders();	
+			} 
+
+	}
 }

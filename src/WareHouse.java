@@ -11,7 +11,7 @@ public class WareHouse extends Building{
 	}
 
 	public void printResources(){
-		System.out.println(stone+" "+wood+" "+food);
+		System.out.println("Stone: "+stone+" Wood: "+wood+"  Food: "+food);
 		}
 
 	public void increaseStone(int quantity){
@@ -24,5 +24,11 @@ public class WareHouse extends Building{
 
 	public void increaseFood(int quantity){
 		food += quantity;	
+	}
+
+	public void decreaseResources(int stone, int wood, int food){
+		this.stone -= stone;
+		this. wood -= wood;
+		this.food -= food;
 	}
 };

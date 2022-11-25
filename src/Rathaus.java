@@ -1,6 +1,6 @@
 public class Rathaus extends Building {
 	WareHouse wareHouse = new WareHouse();
-	Barracks barracks = new Barracks();
+	Barracks barracks = new Barracks(wareHouse);
 	
 	Farm farm = new Farm(wareHouse);
 	Mine mine = new Mine(wareHouse);
