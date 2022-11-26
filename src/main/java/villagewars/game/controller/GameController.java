@@ -1,8 +1,12 @@
 package villagewars.game.controller;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.util.Duration;
 import villagewars.Main;
 
 public class GameController {
@@ -75,7 +79,10 @@ public class GameController {
 
     @FXML
     void initialize(){
-        updatePlayerStats();
+        Main.a.village.startResourcesProduction();
+        Main.animation = new Timeline(new KeyFrame(Duration.seconds(1.0), e -> updatePlayerStats()));
+        Main.animation.setCycleCount(Animation.INDEFINITE);
+        Main.animation.playFromStart();
     }
 
 }

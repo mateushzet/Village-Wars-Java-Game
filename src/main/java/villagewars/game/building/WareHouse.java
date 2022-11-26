@@ -1,9 +1,9 @@
 package villagewars.game.building;
 
 public class WareHouse extends Building {
-	private int stone = 10000;
-	private int wood = 10000;
-	private int food = 10000;
+	private int stone = 0;
+	private int wood = 0;
+	private int food = 0;
 
 	public Boolean verifyResourcesAmount(int requiredStone, int requiredWood, int requiredFood){
 	if(stone >= requiredStone &&
