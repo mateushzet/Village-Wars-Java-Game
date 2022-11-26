@@ -1,3 +1,5 @@
+package villagewars.game.building;
+
 public class Building{
 	private int buildingLevel = 1;
 

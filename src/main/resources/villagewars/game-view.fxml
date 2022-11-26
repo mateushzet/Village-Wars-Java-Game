@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="903.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="villagewars.game.controller.GameController">
+   <children>
+      <Label layoutX="765.0" layoutY="283.0" text="Army">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="717.0" layoutY="334.0" text="pikeman:" />
+      <Label layoutX="716.0" layoutY="370.0" text="swordsman:" />
+      <Label layoutX="719.0" layoutY="408.0" text="axeman:" />
+      <Label fx:id="pikemanNumber" layoutX="807.0" layoutY="334.0" text="Label" />
+      <Label fx:id="swordsmanNumber" layoutX="807.0" layoutY="370.0" text="Label" />
+      <Label fx:id="axemanNumber" layoutX="807.0" layoutY="408.0" text="Label" />
+      <Button layoutX="847.0" layoutY="328.0" mnemonicParsing="false" onAction="#increasePikeman" prefHeight="29.0" prefWidth="28.0" text="+" />
+      <Button layoutX="847.0" layoutY="364.0" mnemonicParsing="false" onAction="#increaseSwordsman" prefHeight="29.0" prefWidth="28.0" text="+" />
+      <Button layoutX="847.0" layoutY="402.0" mnemonicParsing="false" onAction="#increaseAxeman" prefHeight="29.0" prefWidth="28.0" text="+" />
+      <Label layoutX="723.0" layoutY="490.0" prefHeight="17.0" prefWidth="84.0" text="DefencePower" />
+      <Label layoutX="722.0" layoutY="451.0" text="AttackPower" />
+      <Label fx:id="attackPowerNumber" layoutX="847.0" layoutY="451.0" text="Label" />
+      <Label fx:id="DefencePowerNumber" layoutX="847.0" layoutY="490.0" text="Label" />
+      <Label layoutX="721.0" layoutY="208.0" text="Wood" />
+      <Label layoutX="780.0" layoutY="208.0" text="Stone" />
+      <Label layoutX="829.0" layoutY="208.0" text="Food" />
+      <Label layoutX="742.0" layoutY="164.0" text="Resources">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="woodNumber" layoutX="722.0" layoutY="237.0" text="Label" />
+      <Label fx:id="stoneNumber" layoutX="781.0" layoutY="237.0" text="Label" />
+      <Label fx:id="foodNumber" layoutX="828.0" layoutY="237.0" text="Label" />
+      <Label layoutX="721.0" layoutY="56.0" text="Rathaus Level">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="rathausLevel" layoutX="765.0" layoutY="99.0" text="Label">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="866.0" layoutY="59.0" mnemonicParsing="false" onAction="#increaseRathausLevel" prefHeight="29.0" prefWidth="28.0" text="+" />
+   </children>
+</Pane>

@@ -1,7 +1,9 @@
-public class WareHouse extends Building{
-	private int stone = 0;
-	private int wood = 0;
-	private int food = 0;
+package villagewars.game.building;
+
+public class WareHouse extends Building {
+	private int stone = 10000;
+	private int wood = 10000;
+	private int food = 10000;
 
 	public Boolean verifyResourcesAmount(int requiredStone, int requiredWood, int requiredFood){
 	if(stone >= requiredStone &&
@@ -30,5 +32,17 @@ public class WareHouse extends Building{
 		this.stone -= stone;
 		this. wood -= wood;
 		this.food -= food;
+	}
+
+	public int getStone() {
+		return stone;
+	}
+
+	public int getWood() {
+		return wood;
+	}
+
+	public int getFood() {
+		return food;
 	}
 };
