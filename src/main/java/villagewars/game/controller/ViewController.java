@@ -26,7 +26,6 @@ public class ViewController {
             Main.stage.setScene(Main.scene);
             Main.stage.setTitle(title);
             Main.stage.show();
-//            Main.stage.getIcons().add(new Image("com/codecool/dungeoncrawl/img/gameIcon.jpg"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
