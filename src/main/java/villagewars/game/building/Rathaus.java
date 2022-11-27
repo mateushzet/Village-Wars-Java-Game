@@ -1,17 +1,7 @@
 package villagewars.game.building;
 
 public class Rathaus extends Building {
-//	WareHouse wareHouse = new WareHouse();
-//	Barracks barracks = new Barracks(wareHouse);
-//
-//	Farm farm = new Farm(wareHouse);
-//	Mine mine = new Mine(wareHouse);
-//	TimberCamp timberCamp = new TimberCamp(wareHouse);
-//
-//	public void levelUp(Building building){
-//		if(wareHouse.verifyResourcesAmount(10,10,10))
-//		building.increaseLevel();
-//	}
+
 
 	private  WareHouse wareHouse;
 
@@ -27,6 +17,7 @@ public class Rathaus extends Building {
 		mine = new Mine(wareHouse);
 		timberCamp = new TimberCamp(wareHouse);
 	}
+
 		public void levelUp(Building building){
 		if(wareHouse.verifyResourcesAmount(100*getLevel(),100*getLevel(),100*getLevel())) {
 			building.increaseLevel();

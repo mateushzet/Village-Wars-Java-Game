@@ -10,7 +10,6 @@ public class Soldiers {
 		this.attackPower = attackPower;
 		this.defencePower = defencePower;
 		this.lootCapacity = lootCapacity;
-		this.lootCapacity = lootCapacity;
 	}
 	
 	public void recruit(int quantity){
@@ -34,10 +33,16 @@ public class Soldiers {
 		int power = quantity * attackPower;
 		return power;
 	}
-	
-	public void kill(int quantity){
-	this.quantity -= quantity;
+
+	public int getLootCapacity(){
+		int loot = quantity * lootCapacity;
+		return loot;
 	}
+
+	public void killPercent(int percentPoints){
+	this.quantity = Math.round(((float)percentPoints/100) * quantity);
+	}
+
 	
 	public void killAll(){
 	this.quantity = 0;

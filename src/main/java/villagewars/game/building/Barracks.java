@@ -1,9 +1,11 @@
 package villagewars.game.building;
 
 import villagewars.game.units.Soldiers;
+import villagewars.game.village.Village;
 
 public class Barracks extends Building {
 	WareHouse wareHouse;
+	static final int MIN_RATIO = 2;
 	
 	int PIKEMAN_ATTACK_POWER = 50;
 	int PIKEMAN_DEFENCE_POWER = 150;
@@ -64,12 +66,45 @@ public class Barracks extends Building {
 		int power = swordsmans.getAttackPower() + pikemans.getAttackPower() + axemans.getAttackPower();
 		return power;
 	}
+
+	public int calculateLootCapacity(){
+		int loot = swordsmans.getLootCapacity() + pikemans.getLootCapacity() + axemans.getLootCapacity();
+		return loot;
+	}
 	
 	public void killAllSoliders(){
 		pikemans.killAll();	
 		swordsmans.killAll();
 		axemans.killAll();
 	}
+
+	public int calculatePercent(Village defender){
+		int attackerPower = this.calculateAttackPower();
+		int defenderPower = (defender.getBarracks().calculateDefencePower())*MIN_RATIO;
+		int result = 0;
+		if(attackerPower > defenderPower) {
+			result = defenderPower / attackerPower;
+		}else{
+			result = attackerPower / defenderPower;
+		}
+		return result;
+	}
+
+
+	public void killPercentSoldiers(int percentPoints){
+		pikemans.killPercent(percentPoints);
+		swordsmans.killPercent(percentPoints);
+		axemans.killPercent(percentPoints);
+	}
+
+	public boolean atackSuccessed(Village defender){
+		if(this.calculateAttackPower() > (defender.getBarracks().calculateDefencePower())*MIN_RATIO){
+			return true;
+		} else{
+			return false;
+		}
+	}
+
 
 	public Soldiers getPikemans() {
 		return pikemans;

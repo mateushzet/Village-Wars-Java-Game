@@ -1,6 +1,6 @@
 package villagewars.game.building;
 
-public class Building{
+abstract public class Building{
 	private int buildingLevel = 1;
 
 	public int getLevel(){

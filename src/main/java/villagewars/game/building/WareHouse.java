@@ -1,5 +1,7 @@
 package villagewars.game.building;
 
+import villagewars.game.village.Village;
+
 public class WareHouse extends Building {
 	private int stone = 0;
 	private int wood = 0;
@@ -33,6 +35,27 @@ public class WareHouse extends Building {
 		this. wood -= wood;
 		this.food -= food;
 	}
+
+	public void increaseResources(int stone, int wood, int food){
+		this.stone += stone;
+		this. wood += wood;
+		this.food += food;
+	}
+
+
+	public void transferResources(Village sender, int stone, int wood, int food){
+		if(sender.getWareHouse().verifyResourcesAmount(stone, wood, food) == true) {
+			this.increaseResources(stone, wood, food);
+			sender.getWareHouse().decreaseResources(stone, wood, food);
+		}else {
+			stone = sender.getWareHouse().getStone();
+			wood = sender.getWareHouse().getWood();
+			food = sender.getWareHouse().getFood();
+			this.increaseResources(stone, wood, food);
+			sender.getWareHouse().decreaseResources(stone, wood, food);
+		}
+	};
+
 
 	public int getStone() {
 		return stone;
