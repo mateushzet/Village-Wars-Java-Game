@@ -1,4 +1,6 @@
-public class WareHouse extends Building{
+package villagewars.game.building;
+
+public class WareHouse extends Building {
 	private int stone = 0;
 	private int wood = 0;
 	private int food = 0;
@@ -30,5 +32,17 @@ public class WareHouse extends Building{
 		this.stone -= stone;
 		this. wood -= wood;
 		this.food -= food;
+	}
+
+	public int getStone() {
+		return stone;
+	}
+
+	public int getWood() {
+		return wood;
+	}
+
+	public int getFood() {
+		return food;
 	}
 };

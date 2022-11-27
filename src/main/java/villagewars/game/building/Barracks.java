@@ -1,4 +1,8 @@
-public class Barracks extends Building{
+package villagewars.game.building;
+
+import villagewars.game.units.Soldiers;
+
+public class Barracks extends Building {
 	WareHouse wareHouse;
 	
 	int PIKEMAN_ATTACK_POWER = 50;
@@ -13,7 +17,7 @@ public class Barracks extends Building{
 	int AXEMAN_DEFENCE_POWER = 20;
 	int AXEMAN_LOOT_CAPACITY = 25;
 	
-	Barracks(WareHouse wareHouse){
+	public Barracks(WareHouse wareHouse){
 		this.wareHouse = wareHouse;
 	}
 			
@@ -46,7 +50,7 @@ public class Barracks extends Building{
 		System.out.println("Your army:");
 		System.out.println("Pikemans: " + pikemans.getQuantity());
 		System.out.println("Swordsmans: " + swordsmans.getQuantity());
-		System.out.println("Axemans" + axemans.getQuantity());
+		System.out.println("Axemans: " + axemans.getQuantity());
 		System.out.println("Defence power: " + calculateDefencePower());
 		System.out.println("Attack power: " + calculateAttackPower());
 	}
@@ -65,5 +69,17 @@ public class Barracks extends Building{
 		pikemans.killAll();	
 		swordsmans.killAll();
 		axemans.killAll();
-	}	
+	}
+
+	public Soldiers getPikemans() {
+		return pikemans;
+	}
+
+	public Soldiers getSwordsmans() {
+		return swordsmans;
+	}
+
+	public Soldiers getAxemans() {
+		return axemans;
+	}
 };

@@ -1,7 +1,11 @@
+package villagewars.game.player;
+
+import villagewars.game.village.Village;
+
 public class Player{
 	private String nickname, password;
 	public Village village = new Village();
-	Player(String nickname, String password){
+	public Player(String nickname, String password){
 	this.nickname = nickname;
 	this.password = password;
 	}

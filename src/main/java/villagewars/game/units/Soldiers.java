@@ -1,10 +1,12 @@
+package villagewars.game.units;
+
 public class Soldiers {
 	private int quantity = 0;
 	private int attackPower;
 	private int defencePower;
 	private int lootCapacity;
 
-	Soldiers(int attackPower, int defencePower, int lootCapacity){
+	public Soldiers(int attackPower, int defencePower, int lootCapacity){
 		this.attackPower = attackPower;
 		this.defencePower = defencePower;
 		this.lootCapacity = lootCapacity;

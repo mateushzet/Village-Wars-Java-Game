@@ -1,7 +1,9 @@
-abstract public class ProductionBuilding extends Building{
+package villagewars.game.building;
+
+abstract public class ProductionBuilding extends Building {
 	protected int growth = 10;
 	protected int productionDelay = 100;
-	protected WareHouse wareHouse;
+	public WareHouse wareHouse;
 	
 	
 	Runnable productIncreasing = () -> {

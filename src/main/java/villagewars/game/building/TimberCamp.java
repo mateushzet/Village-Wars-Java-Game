@@ -1,4 +1,6 @@
-public class TimberCamp extends ProductionBuilding{
+package villagewars.game.building;
+
+public class TimberCamp extends ProductionBuilding {
 	TimberCamp(WareHouse wareHouse){
 		super.wareHouse = wareHouse;
 	}
