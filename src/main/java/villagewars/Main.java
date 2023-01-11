@@ -18,9 +18,6 @@ public class Main extends Application{
 	public static Player a = new Player("MyNickname", "MyPassword");
 	
 	public static void main(String[] args) {
-//		a.village.startResourcesProduction();
-//		printVillage(a);
-//		a.village.stopResourcesProduction();
 		launch(args);
 	}
 	

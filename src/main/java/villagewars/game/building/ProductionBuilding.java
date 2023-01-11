@@ -13,8 +13,8 @@ abstract public class ProductionBuilding extends Building {
 			}catch(Exception e){
 				System.out.println(e);
 				}
-		increaseProduct();			
-		}
+		increaseProduct();
+	}
 	};	
 	
 	Thread thread = new Thread(productIncreasing);
