@@ -45,7 +45,7 @@ public class Insert {
 
     public void building(int village_id) {
         try {
-            String query = "INSERT INTO building (village_id, 1, 1, 1, 1, 1, 1) VALUES(?)";
+            String query = "INSERT INTO building (village_id, rathaus_level, warehouse_level, barracks_level, farm_level, mine_level, timbercamp_level) VALUES(?, 1, 1, 1, 1, 1, 1)";
 
             PreparedStatement stm = database.prepareStatement(query);
             stm.setInt(1, village_id);
@@ -58,7 +58,7 @@ public class Insert {
 
     public void resources(int village_id) {
         try {
-            String query = "INSERT INTO resources (village_id, 0, 0 ,0) VALUES(?)";
+            String query = "INSERT INTO resources (village_id, food, wood ,stone) VALUES(?, 0, 0, 0)";
 
             PreparedStatement stm = database.prepareStatement(query);
             stm.setInt(1, village_id);
@@ -71,7 +71,7 @@ public class Insert {
 
     public void soldiers(int village_id) {
         try {
-            String query = "INSERT INTO soldiers (village_id, 5, 0 ,0) VALUES(?)";
+            String query = "INSERT INTO soldiers (village_id, quantity_pikeman, quantity_swordsman , quantity_axeman) VALUES(?, 5, 0, 0)";
 
             PreparedStatement stm = database.prepareStatement(query);
             stm.setInt(1, village_id);

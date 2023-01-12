@@ -11,12 +11,16 @@ public class PlayerTCPThread extends Thread{
 
     private Connection database;
     private Select select;
+    private Insert insert;
+    private Update update;
 
     public PlayerTCPThread(Socket socket, Connection con) {
         super();
         mySocket = socket;
         database = con;
         select = new Select(database);
+        insert = new Insert(database);
+        update = new Update(database);
     }
 
 
@@ -24,7 +28,26 @@ public class PlayerTCPThread extends Thread{
         try{
 
             loadPlayer("admin", "password");
-            System.out.println("Poziom baraku: " + select.barracksLevel(1));
+
+//            System.out.println(
+//                    select.barracksLevel(1) +"|"+
+//                            select.farmLevel(1)+"|"+
+//                            select.mineLevel(1)+"|"+
+//                            select.rathausLevel(1)+"|"+
+//                            select.timberCampLevel(1)+"|"+
+//                            select.wareHouseLevel(1)+"|"+
+//                            select.quantityPikeman(1)+"|"+
+//                            select.quantitySwordsman(1)+"|"+
+//                            select.quantityAxeman(1)+"|"+
+//                            select.villageOwner(1)+"|"+
+//                            select.playerID("admin")+"|"+
+//                            select.villageID(1)+"|"+
+//                            select.foodQuantity(1)+"|"+
+//                            select.woodQuantity(1)+"|"+
+//                            select.stoneQuantity(1)+"|"
+//            );
+
+
 
             //przesylanie do klienta
             PrintWriter pw = new PrintWriter(mySocket.getOutputStream());
