@@ -86,7 +86,7 @@ public class PlayerTCPThread extends Thread{
                         break;
 
                     case "quantitySwordsman":
-                        output = Integer.toString(select.stoneQuantity(villageID));
+                        output = Integer.toString(select.quantitySwordsman(villageID));
                         pw.println(output);
                         pw.flush();
 
