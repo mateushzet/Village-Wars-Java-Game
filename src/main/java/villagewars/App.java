@@ -47,6 +47,13 @@ public class App {
             System.out.println(quantitySwordsman());
             System.out.println(quantityAxeman());
 
+            System.out.println(barracksLevel());
+            System.out.println(farmLevel());
+            System.out.println(mineLevel());
+            System.out.println(rathausLevel());
+            System.out.println(timberCampLevel());
+            System.out.println(wareHouseLevel());
+
         //start GUI
         Main.main(args);
 
@@ -177,5 +184,90 @@ public class App {
             return "NaN";
         }
     }
+
+    static String barracksLevel(){
+        try {
+
+            String output;
+            pw.println("barracksLevel");
+            pw.flush();
+            while ((output = bf.readLine()) == null){}
+            return output;
+
+        }catch (IOException e) {
+            return "NaN";
+        }
+    }
+
+    static String farmLevel(){
+        try {
+
+            String output;
+            pw.println("farmLevel");
+            pw.flush();
+            while ((output = bf.readLine()) == null){}
+            return output;
+
+        }catch (IOException e) {
+            return "NaN";
+        }
+    }
+
+    static String mineLevel(){
+        try {
+
+            String output;
+            pw.println("mineLevel");
+            pw.flush();
+            while ((output = bf.readLine()) == null){}
+            return output;
+
+        }catch (IOException e) {
+            return "NaN";
+        }
+    }
+
+    static String rathausLevel(){
+        try {
+
+            String output;
+            pw.println("rathausLevel");
+            pw.flush();
+            while ((output = bf.readLine()) == null){}
+            return output;
+
+        }catch (IOException e) {
+            return "NaN";
+        }
+    }
+
+    static String timberCampLevel(){
+        try {
+
+            String output;
+            pw.println("timberCampLevel");
+            pw.flush();
+            while ((output = bf.readLine()) == null){}
+            return output;
+
+        }catch (IOException e) {
+            return "NaN";
+        }
+    }
+
+    static String wareHouseLevel(){
+        try {
+
+            String output;
+            pw.println("wareHouseLevel");
+            pw.flush();
+            while ((output = bf.readLine()) == null){}
+            return output;
+
+        }catch (IOException e) {
+            return "NaN";
+        }
+    }
+
 
 }
