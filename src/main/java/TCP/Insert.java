@@ -45,15 +45,40 @@ public class Insert {
 
     public void building(int village_id) {
         try {
-            String query = "INSERT INTO building (village_id, 1, 1, 1, 1, 1, 1) VALUES(?, ? ,?, ?, ?, ?)";
+            String query = "INSERT INTO building (village_id, 1, 1, 1, 1, 1, 1) VALUES(?)";
 
             PreparedStatement stm = database.prepareStatement(query);
-            stm.setString(1, password);
-            stm.setString(2, nickname);
+            stm.setInt(1, village_id);
             stm.executeUpdate();
         } catch (
                 SQLException e) {
-            System.out.println("Warning: new player insert failed!");
+            System.out.println("Warning: new buildings insert failed!");
+        }
+    }
+
+    public void resources(int village_id) {
+        try {
+            String query = "INSERT INTO resources (village_id, 0, 0 ,0) VALUES(?)";
+
+            PreparedStatement stm = database.prepareStatement(query);
+            stm.setInt(1, village_id);
+            stm.executeUpdate();
+        } catch (
+                SQLException e) {
+            System.out.println("Warning: new resources insert failed!");
+        }
+    }
+
+    public void soldiers(int village_id) {
+        try {
+            String query = "INSERT INTO soldiers (village_id, 5, 0 ,0) VALUES(?)";
+
+            PreparedStatement stm = database.prepareStatement(query);
+            stm.setInt(1, village_id);
+            stm.executeUpdate();
+        } catch (
+                SQLException e) {
+            System.out.println("Warning: new soldiers insert failed!");
         }
     }
 
