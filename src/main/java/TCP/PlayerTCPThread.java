@@ -67,6 +67,18 @@ public class PlayerTCPThread extends Thread{
                         pw.flush();
                         break;
 
+                    case "getFood":
+                        output = Integer.toString(select.foodQuantity(villageID));
+                        pw.println(output);
+                        pw.flush();
+                        break;
+
+                    case "getStone":
+                        output = Integer.toString(select.stoneQuantity(villageID));
+                        pw.println(output);
+                        pw.flush();
+                        break;
+
                     case "quantityPikeman":
                         output = Integer.toString(select.quantityPikeman(villageID));
                         pw.println(output);
