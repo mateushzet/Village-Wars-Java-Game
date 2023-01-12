@@ -8,37 +8,52 @@ import java.net.InetAddress;
 import java.net.Socket;
 
 public class App {
-    public static void main(String[] args) {
 
-        String[] tempArgs = new String[2];
-        tempArgs[0] = "localhost";
-        tempArgs[1] = "2234";
-        Socket socket;
+    static PrintWriter pw;
 
-        int port = 0;
-        port = Integer.parseInt(tempArgs[1]);
+    static String host = "localhost";
+    static Integer port = 2234;
 
-        try {
-            socket = new Socket(InetAddress.getByName(tempArgs[0]),port);
+    static Socket socket;
+
+    static InputStreamReader in;
+    static BufferedReader bf;
+
+    public App() throws IOException {}
+
+    public static void main(String[] args) throws IOException {
+
+        socket = new Socket(InetAddress.getByName(host),port);
+
+        //wysylanie do servera
+        pw = new PrintWriter(socket.getOutputStream());
+
+        //odbieranie od servera
+        in = new InputStreamReader(socket.getInputStream());
+        bf = new BufferedReader(in);
 
             System.out.println("Oczekiwanie na polaczenie" + System.lineSeparator());
 
-            //odbieranie od servera
-            InputStreamReader in = new InputStreamReader(socket.getInputStream());
-            BufferedReader bf = new BufferedReader(in);
-            String question;
 
-            //wysylanie do servera
-            PrintWriter pw = new PrintWriter(socket.getOutputStream());
-
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
+            System.out.println(getWood());
 
         //start GUI
         Main.main(args);
 
     }
+
+    static String getWood(){
+        try {
+
+            String output;
+            pw.println("getWoodProduction");
+            pw.flush();
+            while ((output = bf.readLine()) == null){}
+                return output;
+
+        }catch (IOException e) {
+            return "NaN";
+        }
+    }
+
 }

@@ -26,41 +26,39 @@ public class PlayerTCPThread extends Thread{
 
     public void run() {
         try{
+            int villageID = 2;
 
             loadPlayer("admin", "password");
-
-//            System.out.println(
-//                    select.barracksLevel(1) +"|"+
-//                            select.farmLevel(1)+"|"+
-//                            select.mineLevel(1)+"|"+
-//                            select.rathausLevel(1)+"|"+
-//                            select.timberCampLevel(1)+"|"+
-//                            select.wareHouseLevel(1)+"|"+
-//                            select.quantityPikeman(1)+"|"+
-//                            select.quantitySwordsman(1)+"|"+
-//                            select.quantityAxeman(1)+"|"+
-//                            select.villageOwner(1)+"|"+
-//                            select.playerID("admin")+"|"+
-//                            select.villageID(1)+"|"+
-//                            select.foodQuantity(1)+"|"+
-//                            select.woodQuantity(1)+"|"+
-//                            select.stoneQuantity(1)+"|"
-//            );
-
-
-
-            //przesylanie do klienta
-            PrintWriter pw = new PrintWriter(mySocket.getOutputStream());
 
             //odbieranie od klienta
             InputStreamReader in = new InputStreamReader(mySocket.getInputStream());
             BufferedReader bf = new BufferedReader(in);
+            String clientMethod;
 
-            pw.close();
-            bf.close();
+            //przesylanie do klienta
+            PrintWriter pw = new PrintWriter(mySocket.getOutputStream());
 
-            mySocket.close();
-            connectedClients--;
+            while(true){
+                while ((clientMethod = bf.readLine()) == null){}
+
+                String output = new String();
+
+                switch(clientMethod){
+                    case "getWoodProduction":
+                        output = Integer.toString(getWoodProduction(villageID));
+                        pw.println(output);
+                        pw.flush();
+                    break;
+                }
+            }
+
+//----------------TODO:
+
+//            pw.close();
+//            bf.close();
+//
+//            mySocket.close();
+//            connectedClients--;
 
         }catch (Exception e){
             System.err.println(e);
