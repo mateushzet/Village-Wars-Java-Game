@@ -171,6 +171,34 @@ public class Select {
         }
     }
 
+    public int playerID(String nickname){
+        try {
+            String query = "SELECT player_id FROM player WHERE nickname = ?";
+            PreparedStatement stm = database.prepareStatement(query);
+            stm.setString(1,nickname);
+            ResultSet result = stm.executeQuery();
+            result.next();
+            return result.getInt("player_id");
+        } catch (SQLException e) {
+            System.out.println("Warning: selectPlayerID query failed!");
+            return 0;
+        }
+    }
+
+    public int villageID(int player_id){
+        try {
+            String query = "SELECT village_id FROM village WHERE player_id = ?";
+            PreparedStatement stm = database.prepareStatement(query);
+            stm.setInt(1,player_id);
+            ResultSet result = stm.executeQuery();
+            result.next();
+            return result.getInt("village_id");
+        } catch (SQLException e) {
+            System.out.println("Warning: selectVillageID query failed!");
+            return 0;
+        }
+    }
+
     public int foodQuantity(int village_id){
         try {
             String query = "SELECT food FROM resources WHERE village_id = ?";
