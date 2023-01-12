@@ -48,7 +48,7 @@ public class PlayerTCPThread extends Thread{
                         output = Integer.toString(getWoodProduction(villageID));
                         pw.println(output);
                         pw.flush();
-                    break;
+                        break;
 
                     case "getFoodProduction":
                         output = Integer.toString(getFoodProduction(villageID));
@@ -60,6 +60,7 @@ public class PlayerTCPThread extends Thread{
                         output = Integer.toString(getStoneProduction(villageID));
                         pw.println(output);
                         pw.flush();
+                        break;
 
                     case "getWood":
                         output = Integer.toString(select.woodQuantity(villageID));
@@ -89,12 +90,49 @@ public class PlayerTCPThread extends Thread{
                         output = Integer.toString(select.quantitySwordsman(villageID));
                         pw.println(output);
                         pw.flush();
+                        break;
 
                     case "quantityAxeman":
                         output = Integer.toString(select.quantityAxeman(villageID));
                         pw.println(output);
                         pw.flush();
+                        break;
 
+                    case "barracksLevel":
+                        output = Integer.toString(select.barracksLevel(villageID));
+                        pw.println(output);
+                        pw.flush();
+                        break;
+
+                    case "farmLevel":
+                        output = Integer.toString(select.farmLevel(villageID));
+                        pw.println(output);
+                        pw.flush();
+                        break;
+
+                    case "mineLevel":
+                        output = Integer.toString(select.mineLevel(villageID));
+                        pw.println(output);
+                        pw.flush();
+                        break;
+
+                    case "rathausLevel":
+                        output = Integer.toString(select.rathausLevel(villageID));
+                        pw.println(output);
+                        pw.flush();
+                        break;
+
+                    case "timberCampLevel":
+                        output = Integer.toString(select.timberCampLevel(villageID));
+                        pw.println(output);
+                        pw.flush();
+                        break;
+
+                    case "wareHouseLevel":
+                        output = Integer.toString(select.wareHouseLevel(villageID));
+                        pw.println(output);
+                        pw.flush();
+                        break;
                 }
             }
 
