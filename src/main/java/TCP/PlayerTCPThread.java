@@ -60,5 +60,15 @@ public class PlayerTCPThread extends Thread{
         }
     }
 
+    public int getWoodProduction(int village_id){
+        return select.timberCampLevel(village_id)*10;
+    }
 
+    public int getFoodProduction(int village_id){
+        return select.farmLevel(village_id)*10;
+    }
+
+    public int getStoneProduction(int village_id){
+        return select.mineLevel(village_id)*10;
+    }
 }
