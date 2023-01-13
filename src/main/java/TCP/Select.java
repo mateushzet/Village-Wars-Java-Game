@@ -7,13 +7,13 @@ import java.sql.SQLException;
 
 public class Select {
 
-    public Connection database;
+    static public Connection database;
 
     public Select(Connection database) {
         this.database = database;
     }
 
-    public String password(String nick) {
+    static public String password(String nick) {
         String error = "selectPassword_ERROR";
         try {
             String query = "SELECT password FROM player WHERE nickname = ?";
@@ -31,7 +31,7 @@ public class Select {
         }
     }
 
-    public int barracksLevel(int village_id){
+    static public int barracksLevel(int village_id){
         try {
             String query = "SELECT barracks_level FROM building WHERE village_id = ?";
             PreparedStatement stm = database.prepareStatement(query);
@@ -45,7 +45,7 @@ public class Select {
         }
     }
 
-    public int farmLevel(int village_id){
+    static public int farmLevel(int village_id){
         try {
             String query = "SELECT farm_level FROM building WHERE village_id = ?";
             PreparedStatement stm = database.prepareStatement(query);
@@ -59,7 +59,7 @@ public class Select {
         }
     }
 
-    public int mineLevel(int village_id){
+    static public int mineLevel(int village_id){
         try {
             String query = "SELECT mine_level FROM building WHERE village_id = ?";
             PreparedStatement stm = database.prepareStatement(query);
@@ -73,7 +73,7 @@ public class Select {
         }
     }
 
-    public int rathausLevel(int village_id){
+    static public int rathausLevel(int village_id){
         try {
             String query = "SELECT rathaus_level FROM building WHERE village_id = ?";
             PreparedStatement stm = database.prepareStatement(query);
@@ -87,7 +87,7 @@ public class Select {
         }
     }
 
-    public int timberCampLevel(int village_id){
+    static public int timberCampLevel(int village_id){
         try {
             String query = "SELECT timbercamp_level FROM building WHERE village_id = ?";
             PreparedStatement stm = database.prepareStatement(query);
@@ -101,7 +101,7 @@ public class Select {
         }
     }
 
-    public int wareHouseLevel(int village_id){
+    static public int wareHouseLevel(int village_id){
         try {
             String query = "SELECT warehouse_level FROM building WHERE village_id = ?";
             PreparedStatement stm = database.prepareStatement(query);
@@ -115,7 +115,7 @@ public class Select {
         }
     }
 
-    public int quantityPikeman(int village_id){
+    static public int quantityPikeman(int village_id){
         try {
             String query = "SELECT quantity_pikeman FROM soldiers WHERE village_id = ?";
             PreparedStatement stm = database.prepareStatement(query);
@@ -129,7 +129,7 @@ public class Select {
         }
     }
 
-    public int quantitySwordsman(int village_id){
+    static public int quantitySwordsman(int village_id){
         try {
             String query = "SELECT quantity_swordsman FROM soldiers WHERE village_id = ?";
             PreparedStatement stm = database.prepareStatement(query);
@@ -143,7 +143,7 @@ public class Select {
         }
     }
 
-    public int quantityAxeman(int village_id){
+    static public int quantityAxeman(int village_id){
         try {
             String query = "SELECT quantity_axeman FROM soldiers WHERE village_id = ?";
             PreparedStatement stm = database.prepareStatement(query);
@@ -157,7 +157,7 @@ public class Select {
         }
     }
 
-    public int villageOwner(int village_id){
+    static public int villageOwner(int village_id){
         try {
             String query = "SELECT player_id FROM village WHERE village_id = ?";
             PreparedStatement stm = database.prepareStatement(query);
@@ -171,7 +171,7 @@ public class Select {
         }
     }
 
-    public int playerID(String nickname){
+    static public int playerID(String nickname){
         try {
             String query = "SELECT player_id FROM player WHERE nickname = ?";
             PreparedStatement stm = database.prepareStatement(query);
@@ -185,7 +185,7 @@ public class Select {
         }
     }
 
-    public int villageID(int player_id){
+    static public int villageID(int player_id){
         try {
             String query = "SELECT village_id FROM village WHERE player_id = ?";
             PreparedStatement stm = database.prepareStatement(query);
@@ -199,7 +199,7 @@ public class Select {
         }
     }
 
-    public int foodQuantity(int village_id){
+    static public int foodQuantity(int village_id){
         try {
             String query = "SELECT food FROM resources WHERE village_id = ?";
             PreparedStatement stm = database.prepareStatement(query);
@@ -213,7 +213,7 @@ public class Select {
         }
     }
 
-    public int woodQuantity(int village_id){
+    static public int woodQuantity(int village_id){
         try {
             String query = "SELECT wood FROM resources WHERE village_id = ?";
             PreparedStatement stm = database.prepareStatement(query);
@@ -227,7 +227,7 @@ public class Select {
         }
     }
 
-    public int stoneQuantity(int village_id){
+    static public int stoneQuantity(int village_id){
         try {
             String query = "SELECT stone FROM resources WHERE village_id = ?";
             PreparedStatement stm = database.prepareStatement(query);

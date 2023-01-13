@@ -1,10 +1,19 @@
 package villagewars.game.building;
 
+import TCP.Select;
+import TCP.Update;
 import villagewars.game.units.Soldiers;
 import villagewars.game.village.Village;
 
-public class Barracks extends Building {
+public class Barracks{
 	WareHouse wareHouse;
+	public int villageID;
+
+	public Barracks(WareHouse wareHouse, int villageID) {
+		this.wareHouse = wareHouse;
+		this.villageID = villageID;
+	}
+
 	static final int MIN_RATIO = 2;
 	
 	int PIKEMAN_ATTACK_POWER = 50;
@@ -18,32 +27,28 @@ public class Barracks extends Building {
 	int AXEMAN_ATTACK_POWER = 200;
 	int AXEMAN_DEFENCE_POWER = 20;
 	int AXEMAN_LOOT_CAPACITY = 25;
-	
-	public Barracks(WareHouse wareHouse){
-		this.wareHouse = wareHouse;
-	}
 			
-	Soldiers pikemans = new Soldiers(PIKEMAN_ATTACK_POWER, PIKEMAN_DEFENCE_POWER, PIKEMAN_LOOT_CAPACITY);
-	Soldiers swordsmans = new Soldiers(SWORDSMAN_ATTACK_POWER, SWORDSMAN_DEFENCE_POWER,SWORDSMAN_LOOT_CAPACITY);
-	Soldiers axemans = new Soldiers(AXEMAN_ATTACK_POWER, AXEMAN_DEFENCE_POWER, AXEMAN_LOOT_CAPACITY );
+	Soldiers pikemans = new Soldiers(PIKEMAN_ATTACK_POWER, PIKEMAN_DEFENCE_POWER, PIKEMAN_LOOT_CAPACITY, "pikeman", villageID);
+	Soldiers swordsmans = new Soldiers(SWORDSMAN_ATTACK_POWER, SWORDSMAN_DEFENCE_POWER,SWORDSMAN_LOOT_CAPACITY,"swordsman",  villageID);
+	Soldiers axemans = new Soldiers(AXEMAN_ATTACK_POWER, AXEMAN_DEFENCE_POWER, AXEMAN_LOOT_CAPACITY, "axeman", villageID);
 
-	public void recruitPikeman(){
+	public void recruitPikeman(int quantity){
 		if(wareHouse.verifyResourcesAmount(20,50,10)){
-			pikemans.recruit();	
+			Update.incrementSoldiers(quantity, 0, 0, villageID);
 			wareHouse.decreaseResources(20,50,10);
 			}
 		}
 	
-	public void recruitSwordsman(){
+	public void recruitSwordsman(int quantity){
 		if(wareHouse.verifyResourcesAmount(50,40,20)){
-			swordsmans.recruit();	
+			Update.incrementSoldiers( 0, quantity,0, villageID);
 			wareHouse.decreaseResources(50,40,20);
 			}
 	}
 	
-	public void recruitAxeman(){
+	public void recruitAxeman(int quantity){
 		if(wareHouse.verifyResourcesAmount(50,50,50)){
-			axemans.recruit();	
+			Update.incrementSoldiers( 0,0, quantity, villageID);
 			wareHouse.decreaseResources(50,50,50);
 			}
 		}
@@ -90,7 +95,6 @@ public class Barracks extends Building {
 		return result;
 	}
 
-
 	public void killPercentSoldiers(int percentPoints){
 		pikemans.killPercent(percentPoints);
 		swordsmans.killPercent(percentPoints);
@@ -105,7 +109,6 @@ public class Barracks extends Building {
 		}
 	}
 
-
 	public Soldiers getPikemans() {
 		return pikemans;
 	}
@@ -117,4 +120,9 @@ public class Barracks extends Building {
 	public Soldiers getAxemans() {
 		return axemans;
 	}
-};
+
+	public int getLevel(){
+		return Select.barracksLevel(villageID);
+	}
+
+}

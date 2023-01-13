@@ -133,6 +133,12 @@ public class PlayerTCPThread extends Thread{
                         pw.println(output);
                         pw.flush();
                         break;
+
+                    case "recruitPikeman":
+                        output = Integer.toString(select.wareHouseLevel(villageID));
+                        pw.println(output);
+                        pw.flush();
+                        break;
                 }
             }
 
@@ -150,13 +156,13 @@ public class PlayerTCPThread extends Thread{
     }
 
 
-    public boolean checkPassword(String nick, String password){
+    private boolean checkPassword(String nick, String password){
         boolean result = password.equals(select.password(nick));
         return result;
     }
 
 
-    public void loadPlayer(String nick, String password){
+    private void loadPlayer(String nick, String password){
         if(checkPassword(nick, password)) {
             Player player = new Player(nick, password);
             System.out.println("Information: User \""+nick+"\" has been successfully logged in.");
@@ -165,15 +171,19 @@ public class PlayerTCPThread extends Thread{
         }
     }
 
-    public int getWoodProduction(int village_id){
+    private int getWoodProduction(int village_id){
         return select.timberCampLevel(village_id)*10;
     }
 
-    public int getFoodProduction(int village_id){
+    private int getFoodProduction(int village_id){
         return select.farmLevel(village_id)*10;
     }
 
-    public int getStoneProduction(int village_id){
+    private int getStoneProduction(int village_id){
         return select.mineLevel(village_id)*10;
+    }
+
+    private void recruitPikeman(){
+
     }
 }

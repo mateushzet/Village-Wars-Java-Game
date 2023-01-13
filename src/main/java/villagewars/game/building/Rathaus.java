@@ -1,27 +1,54 @@
 package villagewars.game.building;
 
-public class Rathaus extends Building {
+import TCP.Select;
+import TCP.Update;
 
+public class Rathaus{
 
 	private  WareHouse wareHouse;
-
 	private  Barracks barracks;
-
 	private Farm farm;
 	private Mine mine;
 	private TimberCamp timberCamp;
-	public Rathaus() {
-		wareHouse = new WareHouse();
-		barracks = new Barracks(wareHouse);
-		farm = new Farm(wareHouse);
-		mine = new Mine(wareHouse);
-		timberCamp = new TimberCamp(wareHouse);
+
+	public int villageID;
+
+	public Rathaus(int villageID) {
+		wareHouse = new WareHouse(villageID);
+		barracks = new Barracks(wareHouse,villageID);
+		farm = new Farm(wareHouse,villageID);
+		mine = new Mine(wareHouse,villageID);
+		timberCamp = new TimberCamp(wareHouse,villageID);
+		this.villageID = villageID;
 	}
 
-		public void levelUp(Building building){
-		if(wareHouse.verifyResourcesAmount(100*getLevel(),100*getLevel(),100*getLevel())) {
-			building.increaseLevel();
-			wareHouse.decreaseResources(100*getLevel(), 100*getLevel(), 100*getLevel());
+
+
+		public void levelUp(String buildingName){
+		switch (buildingName){
+			case "rathaus":
+				Update.incrementBuildings(1,0,0,0,0,0,villageID);
+				break;
+
+			case "barracks":
+				Update.incrementBuildings(0,0,1,0,0,0,villageID);
+				break;
+
+			case "farm":
+				Update.incrementBuildings(0,0,0,1,0,0,villageID);
+				break;
+
+			case "mine":
+				Update.incrementBuildings(0,0,0,0,1,0,villageID);
+				break;
+
+			case "timbercamp":
+				Update.incrementBuildings(0,0,0,0,0,1,villageID);
+				break;
+
+			case "warehouse":
+				Update.incrementBuildings(0,1,0,0,0,0,villageID);
+				break;
 		}
 	}
 
@@ -43,5 +70,9 @@ public class Rathaus extends Building {
 
 	public TimberCamp getTimberCamp() {
 		return timberCamp;
+	}
+
+	public int getLevel(){
+		return Select.rathausLevel(villageID);
 	}
 };

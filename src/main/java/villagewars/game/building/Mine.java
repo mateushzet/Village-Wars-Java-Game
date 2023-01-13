@@ -1,11 +1,24 @@
 package villagewars.game.building;
 
-public class Mine extends ProductionBuilding {
-	public Mine(WareHouse wareHouse){
-		super.wareHouse = wareHouse;
+import TCP.Select;
+
+public class Mine {
+	public int villageID;
+	public WareHouse wareHouse;
+	public Mine(WareHouse wareHouse, int villageID){
+		this.wareHouse = wareHouse;
+		this.villageID = villageID;
 	}
 
 public void increaseProduct(){
-super.wareHouse.increaseStone(super.growth);	
+wareHouse.increaseStone(getGrowth());
 }
+
+	public int getGrowth(){
+		return Select.mineLevel(villageID)*10;
+	}
+
+	public int getLevel(){
+		return Select.mineLevel(villageID);
+	}
 };

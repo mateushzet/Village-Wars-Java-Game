@@ -4,9 +4,11 @@ import villagewars.game.building.*;
 
 public class Village{
 	private Rathaus rathaus;
+	public int villageID;
 
-	public Village() {
-		rathaus = new Rathaus();
+	public Village(int villageID) {
+		rathaus = new Rathaus(villageID);
+		this.villageID = villageID;
 	}
 
 	public void printBuildings(){
@@ -15,17 +17,12 @@ public class Village{
 		System.out.println("koszary - "+getBarracks().getLevel());
 		System.out.println("farma - "+getFarm().getLevel());
 		}
-		
+
+
+		//----------TODO
 	public void startResourcesProduction(){
-	getFarm().startProduction();
-	getMine().startProduction();
-	getTimberCamp().startProduction();
 	}
-	
 	public void stopResourcesProduction(){
-	getFarm().stopProduction();
-	getMine().stopProduction();
-	getTimberCamp().stopProduction();
 	}
 	
 	public void attackVillage(Village defender){

@@ -1,11 +1,17 @@
 package villagewars.game.building;
 
+import TCP.Select;
 import villagewars.game.village.Village;
 
-public class WareHouse extends Building {
+public class WareHouse{
 	private int stone = 0;
 	private int wood = 0;
 	private int food = 0;
+	public int villageID;
+
+	public WareHouse(int villageID) {
+		this.villageID = villageID;
+	}
 
 	public Boolean verifyResourcesAmount(int requiredStone, int requiredWood, int requiredFood){
 	if(stone >= requiredStone &&
@@ -67,5 +73,9 @@ public class WareHouse extends Building {
 
 	public int getFood() {
 		return food;
+	}
+
+	public int getLevel(){
+		return Select.wareHouseLevel(villageID);
 	}
 };

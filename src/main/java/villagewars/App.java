@@ -59,6 +59,8 @@ public class App {
 
     }
 
+    //---------------- Select methods
+
     static String getWoodProduction(){
         try {
 
@@ -266,6 +268,22 @@ public class App {
 
         }catch (IOException e) {
             return "NaN";
+        }
+    }
+
+    //------------- Update methods
+
+    static boolean recruitPikeman(){
+        try {
+            boolean output;
+            String serverOutput = new String();
+            pw.println("recruitPikeman");
+            pw.flush();
+            while ((serverOutput = bf.readLine()) == null){}
+            output = (serverOutput.equals("true")) ? true : false;
+            return output;
+        }catch (IOException e) {
+            return false;
         }
     }
 
