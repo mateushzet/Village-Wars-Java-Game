@@ -36,6 +36,11 @@ public class PlayerTCPThread extends Thread{
             //przesylanie do klienta
             PrintWriter pw = new PrintWriter(mySocket.getOutputStream());
 
+//----------------TODO testy do usuniecia
+//            Player a = new Player("admin","password",database);
+//            Player b = new Player("kamil","piesek",database);
+//            a.village.attackVillage(b.village);
+//            System.out.println("po bitwie");
 
             String output;
             String nickname = new String();
@@ -70,7 +75,8 @@ public class PlayerTCPThread extends Thread{
             pw.println("true");
             pw.flush();
 
-            villageID = loggedPlayer.getVillageID();
+
+
 
             Update.incrementResources(1000,1000,1000, villageID);
 

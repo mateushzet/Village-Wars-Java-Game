@@ -9,10 +9,16 @@ public class Barracks{
 	WareHouse wareHouse;
 	public int villageID;
 	public Select select = new Select();
-
+	Soldiers pikemans;
+	Soldiers swordsmans;
+	Soldiers axemans;
 	public Barracks(WareHouse wareHouse, int villageID) {
 		this.wareHouse = wareHouse;
 		this.villageID = villageID;
+		pikemans = new Soldiers(PIKEMAN_ATTACK_POWER, PIKEMAN_DEFENCE_POWER, PIKEMAN_LOOT_CAPACITY, "pikeman", villageID);
+		swordsmans = new Soldiers(SWORDSMAN_ATTACK_POWER, SWORDSMAN_DEFENCE_POWER,SWORDSMAN_LOOT_CAPACITY,"swordsman",  villageID);
+		axemans = new Soldiers(AXEMAN_ATTACK_POWER, AXEMAN_DEFENCE_POWER, AXEMAN_LOOT_CAPACITY, "axeman", villageID);
+
 	}
 
 	static final int MIN_RATIO = 2;
@@ -29,9 +35,6 @@ public class Barracks{
 	int AXEMAN_DEFENCE_POWER = 20;
 	int AXEMAN_LOOT_CAPACITY = 25;
 			
-	Soldiers pikemans = new Soldiers(PIKEMAN_ATTACK_POWER, PIKEMAN_DEFENCE_POWER, PIKEMAN_LOOT_CAPACITY, "pikeman", villageID);
-	Soldiers swordsmans = new Soldiers(SWORDSMAN_ATTACK_POWER, SWORDSMAN_DEFENCE_POWER,SWORDSMAN_LOOT_CAPACITY,"swordsman",  villageID);
-	Soldiers axemans = new Soldiers(AXEMAN_ATTACK_POWER, AXEMAN_DEFENCE_POWER, AXEMAN_LOOT_CAPACITY, "axeman", villageID);
 
 	public void recruitPikeman(int quantity){
 		if(wareHouse.verifyResourcesAmount(20,50,10)){
@@ -65,12 +68,16 @@ public class Barracks{
 	
 	public int calculateDefencePower(){
 		int power = swordsmans.getDefencePower() + pikemans.getDefencePower() + axemans.getDefencePower();
+		if(power>0)
 		return power;
+		else return 1;
 	}
 	
 	public int calculateAttackPower(){
 		int power = swordsmans.getAttackPower() + pikemans.getAttackPower() + axemans.getAttackPower();
-		return power;
+		if(power>0)
+			return power;
+		else return 1;
 	}
 
 	public int calculateLootCapacity(){
