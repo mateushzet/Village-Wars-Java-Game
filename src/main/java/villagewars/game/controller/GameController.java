@@ -41,26 +41,26 @@ public class GameController {
 
     @FXML
     void increaseRathausLevel(ActionEvent event) {
-        Main.a.village.getRathaus().levelUp(Main.a.village.getRathaus());
+        Main.a.village.getRathaus().levelUp("rathaus");
         updatePlayerStats();
     }
 
     @FXML
     void increaseAxeman(ActionEvent event) {
-        Main.a.village.getRathaus().getBarracks().recruitAxeman();
+        Main.a.village.getRathaus().getBarracks().recruitAxeman(1);
         updatePlayerStats();
     }
 
     @FXML
     void increasePikeman(ActionEvent event) {
-        Main.a.village.getRathaus().getBarracks().recruitPikeman();
+        Main.a.village.getRathaus().getBarracks().recruitPikeman(1);
         updatePlayerStats();
 
     }
 
     @FXML
     void increaseSwordsman(ActionEvent event) {
-        Main.a.village.getRathaus().getBarracks().recruitSwordsman();
+        Main.a.village.getRathaus().getBarracks().recruitSwordsman(1);
         updatePlayerStats();
 
     }

@@ -23,8 +23,7 @@ public class Rathaus{
 	}
 
 
-
-		public void levelUp(String buildingName){
+	public void levelUp(String buildingName){
 		switch (buildingName){
 			case "rathaus":
 				Update.incrementBuildings(1,0,0,0,0,0,villageID);

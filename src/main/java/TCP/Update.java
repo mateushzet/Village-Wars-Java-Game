@@ -41,6 +41,23 @@ public class Update {
             System.out.println("Warning: incrementResources update failed!");
         }
     }
+
+    static public void decrementResources(int food, int wood, int stone, int village_id) {
+        try{
+            String query = "UPDATE resources SET food = food - ?, wood = wood - ?, stone = stone - ? WHERE village_id = ?";
+
+            PreparedStatement stm = database.prepareStatement(query);
+            stm.setInt(1,food);
+            stm.setInt(2,wood);
+            stm.setInt(3,stone);
+            stm.setInt(4,village_id);
+            stm.executeUpdate();
+        } catch (
+                SQLException e) {
+            System.out.println("Warning: incrementResources update failed!");
+        }
+    }
+
     static public void setSoldiers(int pikeman, int swordsman, int axeman, int village_id) {
         try{
             String query = "UPDATE soldiers SET quantity_pikeman = ?, quantity_swordsman = ?, quantity_axeman = ? WHERE village_id = ?";
