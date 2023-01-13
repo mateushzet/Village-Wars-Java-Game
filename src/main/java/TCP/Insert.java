@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class Insert {
 
     private Select select;
-    public Connection database;
+    static public Connection database;
     public Insert(Connection database) {
         this.database = database;
         select = new Select(database);

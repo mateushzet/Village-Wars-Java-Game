@@ -6,6 +6,7 @@ import villagewars.game.village.Village;
 
 public class WareHouse{
 	public int villageID;
+	public Select select = new Select();
 
 	public WareHouse(int villageID) {
 		this.villageID = villageID;
@@ -63,18 +64,18 @@ public class WareHouse{
 
 
 	public int getStone() {
-		return Select.stoneQuantity(villageID);
+		return select.stoneQuantity(villageID);
 	}
 
 	public int getWood() {
-		return Select.woodQuantity(villageID);
+		return select.woodQuantity(villageID);
 	}
 
 	public int getFood() {
-		return Select.foodQuantity(villageID);
+		return select.foodQuantity(villageID);
 	}
 
 	public int getLevel(){
-		return Select.wareHouseLevel(villageID);
+		return select.wareHouseLevel(villageID);
 	}
 };

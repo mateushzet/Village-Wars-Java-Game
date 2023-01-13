@@ -4,15 +4,16 @@ import villagewars.game.player.Player;
 import java.io.*;
 import java.net.Socket;
 import java.sql.Connection;
+import java.util.Scanner;
 
 public class PlayerTCPThread extends Thread{
     private Socket mySocket;
     static int connectedClients = 0;
-
-    private Connection database;
-    private Select select;
-    private Insert insert;
-    private Update update;
+    public int villageID;
+    public Connection database;
+    public Select select;
+    public Insert insert;
+    public Update update;
 
     public PlayerTCPThread(Socket socket, Connection con) {
         super();
@@ -26,9 +27,6 @@ public class PlayerTCPThread extends Thread{
 
     public void run() {
         try{
-            int villageID = 2;
-
-            loadPlayer("admin", "password");
 
             //odbieranie od klienta
             InputStreamReader in = new InputStreamReader(mySocket.getInputStream());
@@ -38,10 +36,48 @@ public class PlayerTCPThread extends Thread{
             //przesylanie do klienta
             PrintWriter pw = new PrintWriter(mySocket.getOutputStream());
 
+
+            String output;
+            String nickname = new String();
+            String password = new String();
+            Player loggedPlayer = null;
+            boolean notLogged = true;
+
+            while (notLogged){
+                while ((output = bf.readLine()) == null){}
+                    if(output.equals("login")){
+                        pw.println("sendMeLogin");
+                        pw.flush();
+
+                        while ((output = bf.readLine()) == null){}
+                            nickname = output;
+                            pw.println("sendMePassword");
+                            pw.flush();
+
+                        while ((output = bf.readLine()) == null){}
+                            password = output;
+                        loggedPlayer = loadPlayer(nickname, password, database);
+                        if(loggedPlayer != null){
+                            notLogged = false;
+                            System.out.println("zalogowano");
+                        } else System.out.println("Info: wrong login input");
+                    }else{
+                        System.out.println("Warning: requested query while not loged");
+                        pw.println("false");
+                        pw.flush();
+                    }
+            }
+            pw.println("true");
+            pw.flush();
+
+            villageID = loggedPlayer.getVillageID();
+
+            Update.incrementResources(1000,1000,1000, villageID);
+
             while(true){
                 while ((clientMethod = bf.readLine()) == null){}
 
-                String output = new String();
+                output = new String();
 
                 switch(clientMethod){
                     case "getWoodProduction":
@@ -135,9 +171,7 @@ public class PlayerTCPThread extends Thread{
                         break;
 
                     case "recruitPikeman":
-                        output = Integer.toString(select.wareHouseLevel(villageID));
-                        pw.println(output);
-                        pw.flush();
+                        loggedPlayer.village.getBarracks().recruitPikeman(1);
                         break;
                 }
             }
@@ -162,13 +196,16 @@ public class PlayerTCPThread extends Thread{
     }
 
 
-    private void loadPlayer(String nick, String password){
+    private Player loadPlayer(String nick, String password, Connection con){
         if(checkPassword(nick, password)) {
-            Player player = new Player(nick, password);
+            Player player = new Player(nick, password, con);
             System.out.println("Information: User \""+nick+"\" has been successfully logged in.");
+            return player;
         }else {
             System.out.println("Information: Login failed for \""+nick+"\" user.");
+            return null;
         }
+
     }
 
     private int getWoodProduction(int village_id){

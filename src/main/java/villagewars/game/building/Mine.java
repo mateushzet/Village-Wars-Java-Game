@@ -3,6 +3,7 @@ package villagewars.game.building;
 import TCP.Select;
 
 public class Mine {
+	public Select select = new Select();
 	public int villageID;
 	public WareHouse wareHouse;
 	public Mine(WareHouse wareHouse, int villageID){

@@ -4,7 +4,7 @@ import TCP.Select;
 import TCP.Update;
 
 public class Rathaus{
-
+	public Select select = new Select();
 	private  WareHouse wareHouse;
 	private  Barracks barracks;
 	private Farm farm;

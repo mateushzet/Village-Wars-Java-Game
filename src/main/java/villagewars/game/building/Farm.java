@@ -3,7 +3,7 @@ package villagewars.game.building;
 import TCP.Select;
 
 public class Farm {
-
+	public Select select = new Select();
 	public int villageID;
 	public WareHouse wareHouse;
 	public Farm(WareHouse wareHouse, int villageID) {

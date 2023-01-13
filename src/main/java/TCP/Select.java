@@ -13,6 +13,9 @@ public class Select {
         this.database = database;
     }
 
+    public Select() {
+    }
+
     static public String password(String nick) {
         String error = "selectPassword_ERROR";
         try {

@@ -8,6 +8,7 @@ import villagewars.game.village.Village;
 public class Barracks{
 	WareHouse wareHouse;
 	public int villageID;
+	public Select select = new Select();
 
 	public Barracks(WareHouse wareHouse, int villageID) {
 		this.wareHouse = wareHouse;
