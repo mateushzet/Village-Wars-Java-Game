@@ -48,24 +48,56 @@ public class PlayerTCPThread extends Thread{
             Player loggedPlayer = null;
             boolean notLogged = true;
 
+
+            // login or registration
             while (notLogged){
                 while ((output = bf.readLine()) == null){}
-                    if(output.equals("login")){
+                    if(output.equals("login")) {
                         pw.println("sendMeLogin");
                         pw.flush();
 
-                        while ((output = bf.readLine()) == null){}
+                        while ((output = bf.readLine()) == null) {}
+                        nickname = output;
+                        pw.println("sendMePassword");
+                        pw.flush();
+
+                        while ((output = bf.readLine()) == null) {
+                        }
+                        password = output;
+                        loggedPlayer = loadPlayer(nickname, password, database);
+                        if (loggedPlayer != null) {
+                            notLogged = false;
+                            System.out.println("zalogowano");
+                        } else System.out.println("Info: wrong login input");
+                    }else if(output.equals("registration")) {
+
+                        pw.println("sendMeLogin");
+                        pw.flush();
+
+                        while ((output = bf.readLine()) == null) {}
+                        if(select.checkNicknameRegistration(output)) {
                             nickname = output;
                             pw.println("sendMePassword");
                             pw.flush();
 
-                        while ((output = bf.readLine()) == null){}
+                            while ((output = bf.readLine()) == null) {}
                             password = output;
-                        loggedPlayer = loadPlayer(nickname, password, database);
-                        if(loggedPlayer != null){
-                            notLogged = false;
-                            System.out.println("zalogowano");
-                        } else System.out.println("Info: wrong login input");
+
+                            insert.player(password, nickname);
+                            int tempPlayerID = select.playerID(nickname);
+                            int tempVillageID = select.villageID(tempPlayerID);
+                            insert.building(tempVillageID);
+                            insert.resources(tempVillageID);
+                            insert.soldiers(tempVillageID);
+
+                            loggedPlayer = loadPlayer(nickname, password, database);
+
+                            if (loggedPlayer != null) {
+                                notLogged = false;
+                                System.out.println("Info: zarejestrowano");
+                            } else System.out.println("Info: wrong registration input");
+                       }
+
                     }else{
                         System.out.println("Warning: requested query while not loged");
                         pw.println("false");
@@ -80,10 +112,13 @@ public class PlayerTCPThread extends Thread{
 
             Update.incrementResources(1000,1000,1000, villageID);
 
+
+            // RMI listener - server
             while(true){
                 while ((clientMethod = bf.readLine()) == null){}
 
                 output = new String();
+                int numberOutput;
 
                 switch(clientMethod){
                     case "getWoodProduction":
@@ -221,6 +256,18 @@ public class PlayerTCPThread extends Thread{
                     case "getPlayerID":
                         output = loggedPlayer.getNickname();
                         pw.println(output);
+                        pw.flush();
+                        break;
+
+                    case "getDefencePower":
+                        numberOutput = loggedPlayer.village.getBarracks().calculateDefencePower();
+                        pw.println(numberOutput);
+                        pw.flush();
+                        break;
+
+                    case "getAttackPower":
+                        numberOutput = loggedPlayer.village.getBarracks().calculateAttackPower();
+                        pw.println(numberOutput);
                         pw.flush();
                         break;
                 }

@@ -77,6 +77,26 @@ public class Main extends Application {
 		return (output.equals("true")) ? true : false;
 	}
 
+	static public boolean registration(String nickname, String password) throws IOException {
+
+		String output;
+		pw.println("registration");
+		pw.flush();
+		while ((output = bf.readLine()) == null) {
+		}
+		pw.println(nickname);
+		pw.flush();
+
+		while ((output = bf.readLine()) == null) {
+		}
+		pw.println(password);
+		pw.flush();
+
+		while ((output = bf.readLine()) == null) {
+		}
+		return (output.equals("true")) ? true : false;
+	}
+
 	//---------------- Select methods
 
 	static public String getWoodProduction() {
@@ -379,4 +399,35 @@ public class Main extends Application {
 		return output;
 	}
 
+
+	static public int getDefencePower() {
+		try {
+			String output;
+			pw.println("getDefencePower");
+			pw.flush();
+			while ((output = bf.readLine()) == null) {}
+			return Integer.parseInt(output);
+
+		} catch (IOException e) {
+			return 0;
+		}
+	}
+
+	static public int getAttackPower() {
+		try {
+			String output;
+			pw.println("getAttackPower");
+			pw.flush();
+			while ((output = bf.readLine()) == null) {}
+			return Integer.parseInt(output);
+
+		} catch (IOException e) {
+			return 0;
+		}
+	}
+
+	static public void getMaxID() {
+		pw.println("getMaxID");
+		pw.flush();
+	}
 }

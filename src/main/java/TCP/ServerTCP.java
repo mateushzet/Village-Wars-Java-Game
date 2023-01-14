@@ -4,6 +4,7 @@ import java.net.ServerSocket;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 import java.util.Scanner;
 
 public class ServerTCP {
@@ -17,6 +18,11 @@ public class ServerTCP {
         Integer port = 2234;
 
         try(ServerSocket serverSocket = new ServerSocket(port)) {
+
+            //start resources production
+            ResourcesProductionThread resourcesProductionThread = new ResourcesProductionThread(con);
+            resourcesProductionThread.start();
+
 
             ConnectingClientsThread connectingClientsThread = new ConnectingClientsThread(serverSocket, con);
             connectingClientsThread.start();
