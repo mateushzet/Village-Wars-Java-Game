@@ -26,6 +26,7 @@ public class Insert {
         }
     }
 
+
      public void player(String password, String nickname) {
          try {
              String query = "INSERT INTO player (password, nickname) VALUES(?,?)";

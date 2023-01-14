@@ -202,6 +202,23 @@ public class Select {
         }
     }
 
+    static public boolean checkNicknameRegistration(String new_nickname){
+        try {
+            String query = "SELECT nickname FROM player WHERE nickname = ?";
+
+            PreparedStatement stm = database.prepareStatement(query);
+            stm.setString(1,new_nickname);
+            ResultSet result = stm.executeQuery();
+            result.next();
+            if(result.getString("nickname").equals(new_nickname)){
+                return false;
+            }else return true;
+        } catch (SQLException e) {
+            System.out.println("Warning: selectVillageID query failed!");
+            return false;
+        }
+    }
+
     static public int foodQuantity(int village_id){
         try {
             String query = "SELECT food FROM resources WHERE village_id = ?";
