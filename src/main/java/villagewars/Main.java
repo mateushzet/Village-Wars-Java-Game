@@ -426,6 +426,37 @@ public class Main extends Application {
 		}
 	}
 
+	static public int getDefencePowerByVillageID(String villageID) {
+		try {
+			String output;
+			pw.println("getDefencePowerByVillageID");
+			pw.flush();
+			while ((output = bf.readLine()) == null) {}
+			pw.println(villageID);
+			pw.flush();
+			while ((output = bf.readLine()) == null) {}
+			return Integer.parseInt(output);
+		} catch (IOException e) {
+			return 0;
+		}
+	}
+
+	static public int getAttackPowerByVillageID(String villageID) {
+		try {
+			String output;
+			pw.println("getAttackPowerByVillageID");
+			pw.flush();
+			while ((output = bf.readLine()) == null) {}
+			pw.println(villageID);
+			pw.flush();
+			while ((output = bf.readLine()) == null) {}
+			return Integer.parseInt(output);
+
+		} catch (IOException e) {
+			return 0;
+		}
+	}
+
 	static public void getMaxID() {
 		pw.println("getMaxID");
 		pw.flush();

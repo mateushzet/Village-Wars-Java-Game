@@ -30,6 +30,40 @@ public class Soldiers {
 		return power;
 	}
 
+	public int getDefencePowerByVillageID(int villageID){
+		int quantity = 0;
+		switch (soldier){
+			case "pikeman":
+				quantity = Select.quantityPikeman(villageID);
+				break;
+			case "swordsman":
+				quantity = Select.quantitySwordsman(villageID);
+				break;
+			case "axeman":
+				quantity = Select.quantityAxeman(villageID);
+				break;
+		}
+		int power = quantity * defencePower;
+		return power;
+	}
+
+	public int getAttackPowerByVillageID(int villageID){
+		int quantity = 0;
+		switch (soldier){
+			case "pikeman":
+				quantity = Select.quantityPikeman(villageID);
+				break;
+			case "swordsman":
+				quantity = Select.quantitySwordsman(villageID);
+				break;
+			case "axeman":
+				quantity = Select.quantityAxeman(villageID);
+				break;
+		}
+		int power = quantity * attackPower;
+		return power;
+	}
+
 	public int getLootCapacity(){
 		int quantity = getQuantity();
 		int loot = quantity * lootCapacity;

@@ -80,6 +80,20 @@ public class Barracks{
 		else return 1;
 	}
 
+	public int calculateDefencePowerByVillageID(int villageID){
+		int power = swordsmans.getDefencePowerByVillageID(villageID) + pikemans.getDefencePowerByVillageID(villageID) + axemans.getDefencePowerByVillageID(villageID);
+		if(power>0)
+			return power;
+		else return 1;
+	}
+
+	public int calculateAttackPowerByVillageID(int villageID){
+		int power = swordsmans.getAttackPowerByVillageID(villageID) + pikemans.getAttackPowerByVillageID(villageID) + axemans.getAttackPowerByVillageID(villageID);
+		if(power>0)
+			return power;
+		else return 1;
+	}
+
 	public int calculateLootCapacity(){
 		int loot = swordsmans.getLootCapacity() + pikemans.getLootCapacity() + axemans.getLootCapacity();
 		return loot;
