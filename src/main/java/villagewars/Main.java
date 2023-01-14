@@ -399,4 +399,8 @@ public class Main extends Application {
 		return output;
 	}
 
+	static public void getMaxID() {
+		pw.println("getMaxID");
+		pw.flush();
+	}
 }
