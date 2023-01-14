@@ -55,7 +55,7 @@ public class Main extends Application {
 		primaryStage.alwaysOnTopProperty();
 		primaryStage.requestFocus();
 		stage = primaryStage;
-		ViewController.setMenuView();
+		ViewController.setLoginView();
 	}
 
 	static public boolean login(String nickname, String password) throws IOException {
