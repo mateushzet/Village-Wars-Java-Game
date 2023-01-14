@@ -270,6 +270,30 @@ public class PlayerTCPThread extends Thread{
                         pw.println(numberOutput);
                         pw.flush();
                         break;
+
+                    case "getDefencePowerByVillageID":
+                        pw.println("sendMeVillageID");
+                        pw.flush();
+                        while (true){
+                            try { if (!((output = bf.readLine()) == null)) break;
+                            } catch (IOException e) {throw new RuntimeException(e);}
+                        }
+                        numberOutput = loggedPlayer.village.getBarracks().calculateDefencePowerByVillageID(Integer.parseInt(output));
+                        pw.println(numberOutput);
+                        pw.flush();
+                        break;
+
+                    case "getAttackPowerByVillageID":
+                        pw.println("sendMeVillageID");
+                        pw.flush();
+                        while (true){
+                            try { if (!((output = bf.readLine()) == null)) break;
+                            } catch (IOException e) {throw new RuntimeException(e);}
+                        }
+                        numberOutput = loggedPlayer.village.getBarracks().calculateAttackPowerByVillageID(Integer.parseInt(output));
+                        pw.println(numberOutput);
+                        pw.flush();
+                        break;
                 }
             }
 
