@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="910.0" style="-fx-background-color: #432109; -fx-background-image: &quot;C:\Users\k-zwo\Downloads\medieval-battle-knights-armor-helmets-swords-axes-great-combat-armored-ancient-warriors-against-castle-160946237.jpg&quot;;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="villagewars.game.controller.GameController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="910.0" style="-fx-background-color: #432109;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="villagewars.game.controller.GameController">
    <children>
       <Pane fx:id="ratthausPane" layoutX="639.0" layoutY="47.0" prefHeight="244.0" prefWidth="254.0" style="-fx-background-color: white;">
          <children>
@@ -43,6 +43,24 @@
             <Label fx:id="woodNeededForUpgrade" layoutX="49.0" layoutY="131.0" prefHeight="17.0" prefWidth="144.0" text="0" />
             <Label fx:id="stoneNeededForUpgrade" layoutX="49.0" layoutY="168.0" text="0" />
             <Label fx:id="foodNeededForUpgrade" layoutX="49.0" layoutY="205.0" text="0" />
+            <ImageView fitHeight="29.0" fitWidth="28.0" layoutX="130.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gameImages/farm.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="29.0" fitWidth="28.0" layoutX="130.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gameImages/tikmbercamp.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="29.0" fitWidth="28.0" layoutX="130.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gameImages/mine.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="farmLevelRathaus" layoutX="160.0" layoutY="128.0" text="0" />
+            <Label fx:id="mineLevelRathaus" layoutX="160.0" layoutY="165.0" text="0" />
+            <Label fx:id="timberCampLevelRathaus" layoutX="160.0" layoutY="202.0" text="0" />
          </children>
       </Pane>
       <Label fx:id="pikemanNumber" layoutX="241.0" layoutY="15.0" text="0" textFill="#ebeaea" />
@@ -53,7 +71,7 @@
       <Label fx:id="woodNumber" layoutX="34.0" layoutY="15.0" text="0" textFill="#f2f0f0" />
       <Label fx:id="stoneNumber" layoutX="104.0" layoutY="15.0" text="0" textFill="#ebe7e7" />
       <Label fx:id="foodNumber" layoutX="177.0" layoutY="15.0" text="0" textFill="#fcf9f9" />
-      <Label layoutX="710.0" layoutY="6.0" text="Nickname" textFill="#f5f3f3">
+      <Label fx:id="nickNameLabel" layoutX="710.0" layoutY="6.0" text="Nickname" textFill="#f5f3f3">
          <font>
             <Font size="24.0" />
          </font>
@@ -210,20 +228,6 @@
             <Button layoutX="46.0" layoutY="161.0" mnemonicParsing="false" onAction="#increaseAxeman" prefHeight="29.0" prefWidth="63.0" text="Recruit" />
          </children>
       </Pane>
-      <Pane fx:id="timberCampPane" layoutX="639.0" layoutY="47.0" prefHeight="244.0" prefWidth="254.0" style="-fx-background-color: white;">
-         <children>
-            <Label layoutX="54.0" layoutY="14.0" prefHeight="35.0" prefWidth="165.0" text="Timber Camp">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="141.0" fitWidth="196.0" layoutX="63.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@gameImages/drewno.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
       <Pane fx:id="minePane" layoutX="639.0" layoutY="47.0" prefHeight="244.0" prefWidth="254.0" style="-fx-background-color: white;">
          <children>
             <Label layoutX="98.0" layoutY="14.0" prefHeight="35.0" prefWidth="165.0" text="Mine">
@@ -231,11 +235,56 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <ImageView fitHeight="141.0" fitWidth="132.0" layoutX="61.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+            <Label layoutX="10.0" layoutY="56.0" prefHeight="17.0" prefWidth="84.0" text="Level:" />
+            <Label fx:id="mineLevel" layoutX="52.0" layoutY="55.0" prefHeight="17.0" prefWidth="13.0" text="1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="101.0" text="Resources needed to level up:" />
+            <ImageView fitHeight="31.0" fitWidth="28.0" layoutX="9.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gameImages/drewno.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="30.0" layoutX="8.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@gameImages/kamien.png" />
                </image>
             </ImageView>
+            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="7.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gameImages/jedzenie.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="82.0" layoutY="49.0" mnemonicParsing="false" onAction="#increaseMineLevel" prefHeight="29.0" prefWidth="28.0" text="+" />
+            <Label fx:id="woodNeededForUpgradeMine" layoutX="45.0" layoutY="127.0" prefHeight="17.0" prefWidth="144.0" text="0" />
+            <Label fx:id="stoneNeededForUpgradeMine" layoutX="45.0" layoutY="164.0" text="0" />
+            <Label fx:id="foodNeededForUpgradeMine" layoutX="45.0" layoutY="201.0" text="0" />
+            <Label fx:id="stoneProduction" layoutX="173.0" layoutY="56.0" text="0" />
+            <ImageView fitHeight="35.0" fitWidth="30.0" layoutX="131.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gameImages/kamien.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="29.0" fitWidth="28.0" layoutX="133.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gameImages/rathaus.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="29.0" fitWidth="28.0" layoutX="133.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gameImages/tikmbercamp.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="29.0" fitWidth="28.0" layoutX="133.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gameImages/farm.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="rathausLevelMine" layoutX="165.0" layoutY="127.0" text="0" />
+            <Label fx:id="farmLevelMine" layoutX="165.0" layoutY="163.0" text="0" />
+            <Label fx:id="timberCampLevelMine" layoutX="165.0" layoutY="199.0" text="0" />
          </children>
       </Pane>
       <Pane fx:id="farmPane" layoutX="639.0" layoutY="47.0" prefHeight="244.0" prefWidth="254.0" style="-fx-background-color: white;">
@@ -245,13 +294,73 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <ImageView fitHeight="129.0" fitWidth="132.0" layoutX="61.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+            <Label layoutX="10.0" layoutY="56.0" prefHeight="17.0" prefWidth="84.0" text="Level:" />
+            <Label fx:id="farmLevel" layoutX="52.0" layoutY="55.0" prefHeight="17.0" prefWidth="13.0" text="1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="15.0" layoutY="101.0" text="Resources needed to level up:" />
+            <ImageView fitHeight="31.0" fitWidth="28.0" layoutX="9.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gameImages/drewno.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="30.0" layoutX="8.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gameImages/kamien.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="7.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@gameImages/jedzenie.png" />
                </image>
             </ImageView>
+            <Button layoutX="82.0" layoutY="49.0" mnemonicParsing="false" onAction="#increaseFarmLevel" prefHeight="29.0" prefWidth="28.0" text="+" />
+            <Label fx:id="woodNeededForUpgradeFarm" layoutX="45.0" layoutY="127.0" prefHeight="17.0" prefWidth="144.0" text="0" />
+            <Label fx:id="stoneNeededForUpgradeFarm" layoutX="45.0" layoutY="164.0" text="0" />
+            <Label fx:id="foodNeededForUpgradeFarm" layoutX="45.0" layoutY="201.0" text="0" />
+            <Label fx:id="foodProduction" layoutX="173.0" layoutY="56.0" text="0" />
+            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="135.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gameImages/jedzenie.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="29.0" fitWidth="28.0" layoutX="127.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gameImages/rathaus.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="29.0" fitWidth="28.0" layoutX="127.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gameImages/tikmbercamp.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="29.0" fitWidth="28.0" layoutX="127.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gameImages/mine.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="rathausLevelFarm" layoutX="168.0" layoutY="126.0" text="0" />
+            <Label fx:id="mineLevelFarm" layoutX="168.0" layoutY="163.0" text="0" />
+            <Label fx:id="timberCampLevelFarm" layoutX="168.0" layoutY="200.0" text="0" />
          </children>
       </Pane>
+      <ImageView fitHeight="150.0" fitWidth="254.0" layoutX="639.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@gameImages/mapa.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="700.0" layoutY="373.0" text="Mapa świata" textFill="#f2eeee">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="639.0" layoutY="322.0" mnemonicParsing="false" onAction="#goToWorldsMap" prefHeight="137.0" prefWidth="248.0" style="-fx-background-color: FF000000;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
       <Pane fx:id="wareHousePane" layoutX="639.0" layoutY="47.0" prefHeight="244.0" prefWidth="254.0" style="-fx-background-color: white;">
          <children>
             <Label layoutX="67.0" layoutY="14.0" prefHeight="35.0" prefWidth="165.0" text="Warehouse">
@@ -281,20 +390,64 @@
             <Label layoutX="80.0" layoutY="96.0" text="Current resources" />
          </children>
       </Pane>
-      <ImageView fitHeight="150.0" fitWidth="254.0" layoutX="639.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@gameImages/mapa.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="700.0" layoutY="373.0" text="Mapa świata" textFill="#f2eeee">
-         <font>
-            <Font name="System Bold Italic" size="24.0" />
-         </font>
-      </Label>
-      <Button layoutX="639.0" layoutY="322.0" mnemonicParsing="false" onAction="#goToWorldsMap" prefHeight="137.0" prefWidth="248.0" style="-fx-background-color: FF000000;">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
+      <Pane fx:id="timberCampPane" layoutX="639.0" layoutY="47.0" prefHeight="244.0" prefWidth="254.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="54.0" layoutY="14.0" prefHeight="35.0" prefWidth="165.0" text="Timber Camp">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="56.0" prefHeight="17.0" prefWidth="84.0" text="Level:" />
+            <Label fx:id="timberCampLevel" layoutX="53.0" layoutY="55.0" prefHeight="17.0" prefWidth="13.0" text="1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="16.0" layoutY="101.0" text="Resources needed to level up:" />
+            <ImageView fitHeight="31.0" fitWidth="28.0" layoutX="10.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gameImages/drewno.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="30.0" layoutX="9.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gameImages/kamien.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="8.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gameImages/jedzenie.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="83.0" layoutY="49.0" mnemonicParsing="false" onAction="#increaseTimberCampLevel" prefHeight="29.0" prefWidth="28.0" text="+" />
+            <Label fx:id="woodNeededForUpgradeTimber" layoutX="46.0" layoutY="127.0" prefHeight="17.0" prefWidth="144.0" text="0" />
+            <Label fx:id="stoneNeededForUpgradeTimber" layoutX="46.0" layoutY="164.0" text="0" />
+            <Label fx:id="foodNeededForUpgradeTimber" layoutX="46.0" layoutY="201.0" text="0" />
+            <ImageView fitHeight="31.0" fitWidth="28.0" layoutX="137.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gameImages/drewno.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="woodProduction" layoutX="174.0" layoutY="56.0" text="0" />
+            <ImageView fitHeight="29.0" fitWidth="28.0" layoutX="123.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gameImages/rathaus.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="29.0" fitWidth="28.0" layoutX="123.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gameImages/farm.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="29.0" fitWidth="28.0" layoutX="123.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@gameImages/mine.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="rathausLevelTimber" layoutX="160.0" layoutY="127.0" text="0" />
+            <Label fx:id="mineLevelTimber" layoutX="160.0" layoutY="164.0" text="0" />
+            <Label fx:id="farmLevelTimber" layoutX="160.0" layoutY="201.0" text="0" />
+         </children>
+      </Pane>
    </children>
 </Pane>

@@ -1,11 +1,25 @@
 package villagewars.game.building;
 
-public class Farm extends ProductionBuilding {
-	public Farm(WareHouse wareHouse){
-		super.wareHouse = wareHouse;
+import TCP.Select;
+
+public class Farm {
+	public Select select = new Select();
+	public int villageID;
+	public WareHouse wareHouse;
+	public Farm(WareHouse wareHouse, int villageID) {
+		this.villageID = villageID;
+		this.wareHouse = wareHouse;
 	}
 
 public void increaseProduct(){
-super.wareHouse.increaseFood(super.growth);	
+wareHouse.increaseFood(getGrowth());
 }
+
+public int getGrowth(){
+	return Select.farmLevel(villageID)*10;
+}
+
+	public int getLevel(){
+		return Select.farmLevel(villageID);
+	}
 };

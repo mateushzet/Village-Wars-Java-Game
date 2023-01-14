@@ -11,8 +11,6 @@ public class ViewController {
 
     public static GraphicsContext context;
 
-    private static FXMLLoader menuViewLoader;
-
     private static FXMLLoader gameViewLoader;
 
     private static FXMLLoader mapViewLoader;
@@ -35,11 +33,6 @@ public class ViewController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public static void setMenuView() {
-        menuViewLoader = new FXMLLoader(Main.class.getResource("menu-view.fxml"));
-        setView(menuViewLoader, "Main Menu");
     }
 
     public static void setGameView(){

@@ -1,7 +1,6 @@
 package villagewars;
-import java.io.IOException;
 
-public class App {
+public class App2 {
 
     public static void main(String[] args) throws Exception {
 
