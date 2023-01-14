@@ -261,6 +261,17 @@ public class Select {
         }
     }
 
-
+    static public int getMaxID(){
+        try {
+            String query = "SELECT max(player_id) FROM player;";
+            PreparedStatement stm = database.prepareStatement(query);
+            ResultSet result = stm.executeQuery();
+            result.next();
+            return result.getInt("max(player_id)");
+        } catch (SQLException e) {
+            System.out.println("Warning: selectMaxID query failed!");
+            return 0;
+        }
+    }
 
 }
