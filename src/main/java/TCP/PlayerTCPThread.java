@@ -294,6 +294,21 @@ public class PlayerTCPThread extends Thread{
                         pw.println(numberOutput);
                         pw.flush();
                         break;
+
+                    case "neededResourcesToBuild":
+
+                        pw.println("sendMeBuildingLevel");
+                        pw.flush();
+
+                        while (true){
+                            try { if (!((output = bf.readLine()) == null)) break;
+                            } catch (IOException e) {throw new RuntimeException(e);}
+                        }
+
+                        numberOutput = Integer.parseInt(output) * Integer.parseInt(output) * 100;
+                        pw.println(numberOutput);
+                        pw.flush();
+                        break;
                 }
             }
 
