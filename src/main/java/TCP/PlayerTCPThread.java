@@ -179,6 +179,38 @@ public class PlayerTCPThread extends Thread{
                     case "recruitPikeman":
                         loggedPlayer.village.getBarracks().recruitPikeman(1);
                         break;
+
+                    case "recruitSwordsman":
+                        loggedPlayer.village.getBarracks().recruitSwordsman(1);
+                        break;
+
+                    case "recruitAxeman":
+                        loggedPlayer.village.getBarracks().recruitAxeman(1);
+                        break;
+
+                    case "incrementBarracks":
+                        loggedPlayer.village.getRathaus().levelUp("barracks");
+                        break;
+
+                    case "incrementFarm":
+                        loggedPlayer.village.getRathaus().levelUp("farm");
+                        break;
+
+                    case "incrementMine":
+                        loggedPlayer.village.getRathaus().levelUp("mine");
+                        break;
+
+                    case "incrementRathaus":
+                        loggedPlayer.village.getRathaus().levelUp("rathaus");
+                        break;
+
+                    case "incrementTimberCamp":
+                        loggedPlayer.village.getRathaus().levelUp("timbercamp");
+                        break;
+
+                    case "incrementWareHouse":
+                        loggedPlayer.village.getRathaus().levelUp("warehouse");
+                        break;
                 }
             }
 
