@@ -108,13 +108,14 @@ public class Barracks{
 	public int calculatePercent(Village defender){
 		int attackerPower = this.calculateAttackPower();
 		int defenderPower = (defender.getBarracks().calculateDefencePower())*MIN_RATIO;
-		int result = 0;
+		float result = 0;
 		if(attackerPower > defenderPower) {
 			result = defenderPower / attackerPower;
 		}else{
-			result = attackerPower / defenderPower;
+			result = (float)attackerPower / (float)defenderPower;
 		}
-		return result;
+		result *= 100;
+		return (int) result;
 	}
 
 	public void killPercentSoldiers(int percentPoints){

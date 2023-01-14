@@ -5,8 +5,18 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import villagewars.Main;
+import java.util.ArrayList;
+
+import java.util.Collections;
 
 public class MapController {
+
+    static int enemyID;
+
+
+    @FXML
+    private Button attack;
 
     @FXML
     private Label attackPowerNumber;
@@ -80,17 +90,17 @@ public class MapController {
     @FXML
     private Button village6Btn;
 
-    private Button[] villageButtons = {village1Btn,village2Btn,village3Btn,village4Btn,village5Btn,village6Btn};
+    private ArrayList<Button> villageButtons = new ArrayList<>();
 
-    private ImageView[] villageImages = {village1,village2,village3,village4,village5,village6};
+
+    private ArrayList<ImageView> villageImages = new ArrayList<>();
 
     private
 
     @FXML
     void attackPlayer(ActionEvent event) {
-        String id = ((Button) event.getSource()).getId();
 
-
+        Main.attackPlayer(String.valueOf(enemyID));
 
     }
 
@@ -101,7 +111,56 @@ public class MapController {
 
     @FXML
     void showVillage(ActionEvent event) {
+        Button btn = (Button) (event.getSource());
 
+        for (int i = 0; i < villageButtons.size(); i++) {
+            if(villageButtons.get(i).getId().equals(btn.getId())){
+                enemyID = i+1;
+            }
+        }
+        updatePlayerStats();
+        System.out.println(Main.getPlayerID());
+        if (enemyID != Integer.parseInt(Main.getPlayerID())){
+        attack.setVisible(true);}
+        else {attack.setVisible(false);}
     }
 
+    @FXML
+    void initialize(){
+        villageImages.add(village1);
+        villageImages.add(village2);
+        villageImages.add(village3);
+        villageImages.add(village4);
+        villageImages.add(village5);
+        villageImages.add(village6);
+
+        villageButtons.add(village1Btn);
+        villageButtons.add(village2Btn);
+        villageButtons.add(village3Btn);
+        villageButtons.add(village4Btn);
+        villageButtons.add(village5Btn);
+        villageButtons.add(village6Btn);
+
+        playersNickname.setText(Main.getNickname());
+        enemyNickname.setText("Enemy");
+
+        int maxID = Main.getMaxID();
+        for (int i = maxID ; i < villageImages.size(); i++) {
+            villageImages.get(i).setVisible(false);
+        }
+        pikemanNumber.setText(Main.quantityPikeman());
+        swordsmanNumber.setText(Main.quantitySwordsman());
+        axemanNumber.setText(Main.quantityAxeman());
+        attackPowerNumber.setText(String.valueOf( Main.getAttackPower()));
+        defencePowerNumber.setText(String.valueOf( Main.getDefencePower()));
+
+        attack.setVisible(false);
+    }
+
+    void updatePlayerStats(){
+
+        enemyDefencePowerNumber.setText(String.valueOf(Main.getDefencePowerByVillageID(String.valueOf(enemyID))));
+        enemyAttackPowerNumber.setText(String.valueOf(Main.getAttackPowerByVillageID(String.valueOf(enemyID))));
+
+    }
 }

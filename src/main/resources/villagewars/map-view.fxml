@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="470.0" prefWidth="910.0" style="-fx-background-color: #432109;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="villagewars.game.controller.MapController">
+<AnchorPane prefHeight="470.0" prefWidth="910.0" style="-fx-background-color: #432109;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="villagewars.game.controller.MapController">
    <children>
       <ImageView fitHeight="448.0" fitWidth="714.0" layoutX="14.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -68,30 +68,12 @@
             <Image url="@gameImages/shield-icon.png" />
          </image>
       </ImageView>
-      <Button layoutX="715.0" layoutY="258.0" mnemonicParsing="false" onAction="#attackPlayer" prefHeight="25.0" prefWidth="106.0" text="Attack" />
+      <Button fx:id="attack" layoutX="715.0" layoutY="258.0" mnemonicParsing="false" onAction="#attackPlayer" prefHeight="25.0" prefWidth="106.0" text="Attack" />
       <Label fx:id="enemyNickname" layoutX="715.0" layoutY="125.0" text="Nickname" textFill="#f5f3f3">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="enemyPikemanNumber" layoutX="729.0" layoutY="168.0" text="0" textFill="#ebeaea" />
-      <Label fx:id="enemySwordsmanNumber" layoutX="780.0" layoutY="169.0" text="0" textFill="#eeeded" />
-      <Label fx:id="enemyAxemanNumber" layoutX="828.0" layoutY="168.0" text="0" textFill="#f2eeee" />
-      <ImageView fitHeight="31.0" fitWidth="44.0" layoutX="701.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@gameImages/spearman.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="32.0" layoutX="748.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@gameImages/swordsman.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="32.0" layoutX="796.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@gameImages/axeman.png" />
-         </image>
-      </ImageView>
       <Label fx:id="enemyAttackPowerNumber" layoutX="755.0" layoutY="208.0" text="0" textFill="#f5f4f4" />
       <Label fx:id="enemyDefencePowerNumber" layoutX="815.0" layoutY="208.0" text="0" textFill="#f5f2f2" />
       <ImageView fitHeight="29.0" fitWidth="30.0" layoutX="715.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">

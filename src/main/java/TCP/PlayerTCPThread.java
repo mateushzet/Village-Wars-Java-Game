@@ -1,6 +1,8 @@
 package TCP;
 
 import villagewars.game.player.Player;
+import villagewars.game.village.Village;
+
 import java.io.*;
 import java.net.Socket;
 import java.sql.Connection;
@@ -65,6 +67,7 @@ public class PlayerTCPThread extends Thread{
                         }
                         password = output;
                         loggedPlayer = loadPlayer(nickname, password, database);
+                        villageID = loggedPlayer.getVillageID();
                         if (loggedPlayer != null) {
                             notLogged = false;
                             System.out.println("zalogowano");
@@ -75,6 +78,7 @@ public class PlayerTCPThread extends Thread{
                         pw.flush();
 
                         while ((output = bf.readLine()) == null) {}
+
                         if(select.checkNicknameRegistration(output)) {
                             nickname = output;
                             pw.println("sendMePassword");
@@ -91,6 +95,7 @@ public class PlayerTCPThread extends Thread{
                             insert.soldiers(tempVillageID);
 
                             loggedPlayer = loadPlayer(nickname, password, database);
+                            villageID = loggedPlayer.getVillageID();
 
                             if (loggedPlayer != null) {
                                 notLogged = false;
@@ -254,7 +259,7 @@ public class PlayerTCPThread extends Thread{
                         break;
 
                     case "getPlayerID":
-                        output = loggedPlayer.getNickname();
+                        output = String.valueOf( loggedPlayer.getPlayerID());
                         pw.println(output);
                         pw.flush();
                         break;
@@ -309,6 +314,40 @@ public class PlayerTCPThread extends Thread{
                         pw.println(numberOutput);
                         pw.flush();
                         break;
+
+                    case "getMaxID":
+                        output = String.valueOf(Select.getMaxID());
+                        pw.println(output);
+                        pw.flush();
+                        break;
+
+                    case "getVillageID":
+                        while (true){
+                            try { if (!((output = bf.readLine()) == null)) break;
+                            } catch (IOException e) {throw new RuntimeException(e);}
+                        }
+                        pw.println("sendMePlayerID");
+                        pw.flush();
+                        while (true){
+                            try { if (!((output = bf.readLine()) == null)) break;
+                            } catch (IOException e) {throw new RuntimeException(e);}
+                        }
+                        int temp = Integer.parseInt(output);
+                        output =  String.valueOf(Select.villageID(temp));
+                        pw.println(output);
+                        pw.flush();
+                        break;
+
+                    case "attackPlayer":
+                        pw.println("sendMeVillageID");
+                        pw.flush();
+                        while (true){
+                            try { if (!((output = bf.readLine()) == null)) break;
+                            } catch (IOException e) {throw new RuntimeException(e);}
+                        }
+                        Village defender = loadPlayerByVillageID(Integer.parseInt(output), database);
+                        loggedPlayer.village.attackVillage(defender);
+                        break;
                 }
             }
 
@@ -343,6 +382,13 @@ public class PlayerTCPThread extends Thread{
         }
 
     }
+
+    private Village loadPlayerByVillageID(int villageID, Connection con){
+        int temp = Select.villageOwner(villageID);
+            Player player = new Player(villageID, temp, con);
+            return player.village;
+        }
+
 
     private int getWoodProduction(int village_id){
         return select.timberCampLevel(village_id)*10;

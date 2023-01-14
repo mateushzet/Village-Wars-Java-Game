@@ -78,7 +78,6 @@ public class Main extends Application {
 	}
 
 	static public boolean registration(String nickname, String password) throws IOException {
-
 		String output;
 		pw.println("registration");
 		pw.flush();
@@ -361,6 +360,23 @@ public class Main extends Application {
 		pw.flush();
 	}
 
+	static public String getVillageID(int playerID) {
+		try {
+			String output;
+			pw.println("getVillageID");
+			pw.flush();
+			while ((output = bf.readLine()) == null) {
+			}
+			pw.println(playerID);
+			pw.flush();
+			while ((output = bf.readLine()) == null) {
+			}
+			return output;
+		}catch (Exception e){
+			return "0";
+		}
+	}
+
 	static public void incrementTimberCamp() {
 		pw.println("incrementTimberCamp");
 		pw.flush();
@@ -457,9 +473,16 @@ public class Main extends Application {
 		}
 	}
 
-	static public void getMaxID() {
-		pw.println("getMaxID");
-		pw.flush();
+	static public int getMaxID() {
+		try {
+			String output;
+			pw.println("getMaxID");
+			pw.flush();
+			while ((output = bf.readLine()) == null) {}
+			return Integer.parseInt(output);
+		}catch (Exception e){
+			return 0;
+		}
 	}
 
 	static public int neededResourcesToBuild(String level){
@@ -479,5 +502,16 @@ public class Main extends Application {
 		}
 	}
 
+	static public void attackPlayer(String villageID) {
+		try {
+			String output;
+			pw.println("attackPlayer");
+			pw.flush();
+			while ((output = bf.readLine()) == null) {}
+			pw.println(villageID);
+			pw.flush();
+		} catch (IOException e) {
+		}
+	}
 
 }

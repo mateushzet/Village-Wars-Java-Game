@@ -19,9 +19,11 @@ public class LoginController {
     @FXML
     void onLogin(ActionEvent event) {
         try {
-            if(Main.login(loginName.getText(), loginPassword.getText())){
-                ViewController.setGameView();
-            };
+            if(!loginName.getText().equals("") && !loginPassword.getText().equals("")){
+                if(Main.login(loginName.getText(), loginPassword.getText())){
+                    ViewController.setGameView();
+                }else ViewController.setLoginView();
+            }else ViewController.setLoginView();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
