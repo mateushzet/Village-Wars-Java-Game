@@ -18,25 +18,25 @@
             <Image url="@gameImages/world.png" />
          </image>
       </ImageView>
-      <Label fx:id="pikemanNumber" layoutX="732.0" layoutY="129.0" text="0" textFill="#ebeaea" />
-      <Label fx:id="swordsmanNumber" layoutX="783.0" layoutY="130.0" text="0" textFill="#eeeded" />
-      <Label fx:id="axemanNumber" layoutX="831.0" layoutY="129.0" text="0" textFill="#f2eeee" />
-      <ImageView fitHeight="31.0" fitWidth="44.0" layoutX="704.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+      <Label fx:id="pikemanNumber" layoutX="729.0" layoutY="59.0" text="0" textFill="#ebeaea" />
+      <Label fx:id="swordsmanNumber" layoutX="780.0" layoutY="60.0" text="0" textFill="#eeeded" />
+      <Label fx:id="axemanNumber" layoutX="828.0" layoutY="59.0" text="0" textFill="#f2eeee" />
+      <ImageView fitHeight="31.0" fitWidth="44.0" layoutX="701.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@gameImages/spearman.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="32.0" layoutX="751.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="35.0" fitWidth="32.0" layoutX="748.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@gameImages/swordsman.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="32.0" layoutX="799.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="35.0" fitWidth="32.0" layoutX="796.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@gameImages/axeman.png" />
          </image>
       </ImageView>
-      <Label layoutX="720.0" layoutY="16.0" text="Nickname" textFill="#f5f3f3">
+      <Label fx:id="playersNickname" layoutX="720.0" layoutY="16.0" text="Nickname" textFill="#f5f3f3">
          <font>
             <Font size="24.0" />
          </font>
@@ -56,14 +56,14 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label fx:id="attackPowerNumber" layoutX="748.0" layoutY="201.0" text="0" textFill="#f5f4f4" />
-      <Label fx:id="DefencePowerNumber" layoutX="813.0" layoutY="202.0" text="0" textFill="#f5f2f2" />
-      <ImageView fitHeight="29.0" fitWidth="30.0" layoutX="709.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+      <Label fx:id="attackPowerNumber" layoutX="755.0" layoutY="99.0" text="0" textFill="#f5f4f4" />
+      <Label fx:id="defencePowerNumber" layoutX="815.0" layoutY="99.0" text="0" textFill="#f5f2f2" />
+      <ImageView fitHeight="29.0" fitWidth="30.0" layoutX="715.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@gameImages/swords.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="44.0" layoutX="771.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="35.0" fitWidth="44.0" layoutX="768.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@gameImages/shield-icon.png" />
          </image>
@@ -90,6 +90,41 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <Button layoutX="723.0" layoutY="263.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="Attack" />
+      <Button layoutX="715.0" layoutY="258.0" mnemonicParsing="false" onAction="#attackPlayer" prefHeight="25.0" prefWidth="106.0" text="Attack" />
+      <Label fx:id="enemyNickname" layoutX="715.0" layoutY="125.0" text="Nickname" textFill="#f5f3f3">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="enemyPikemanNumber" layoutX="729.0" layoutY="168.0" text="0" textFill="#ebeaea" />
+      <Label fx:id="enemySwordsmanNumber" layoutX="780.0" layoutY="169.0" text="0" textFill="#eeeded" />
+      <Label fx:id="enemyAxemanNumber" layoutX="828.0" layoutY="168.0" text="0" textFill="#f2eeee" />
+      <ImageView fitHeight="31.0" fitWidth="44.0" layoutX="701.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@gameImages/spearman.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="32.0" layoutX="748.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@gameImages/swordsman.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="32.0" layoutX="796.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@gameImages/axeman.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="enemyAttackPowerNumber" layoutX="755.0" layoutY="208.0" text="0" textFill="#f5f4f4" />
+      <Label fx:id="enemyDefencePowerNumber" layoutX="815.0" layoutY="208.0" text="0" textFill="#f5f2f2" />
+      <ImageView fitHeight="29.0" fitWidth="30.0" layoutX="715.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@gameImages/swords.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="44.0" layoutX="768.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@gameImages/shield-icon.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
