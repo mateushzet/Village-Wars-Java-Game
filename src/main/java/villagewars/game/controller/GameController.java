@@ -100,6 +100,11 @@ public class GameController {
     private ArrayList<Pane> lista = new ArrayList<>();
 
     @FXML
+    void goToWorldsMap(ActionEvent event) {
+        ViewController.setMapView();
+    }
+
+    @FXML
     void showMineDetails(ActionEvent event){
         lista.forEach(pane -> pane.setVisible(false));
         minePane.setVisible(!ratthausPane.isVisible());
