@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="470.0" prefWidth="910.0" style="-fx-background-color: #432109;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="villagewars.game.controller.MapController">
+   <children>
+      <ImageView fitHeight="448.0" fitWidth="714.0" layoutX="14.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@gameImages/world.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="pikemanNumber" layoutX="732.0" layoutY="129.0" text="0" textFill="#ebeaea" />
+      <Label fx:id="swordsmanNumber" layoutX="783.0" layoutY="130.0" text="0" textFill="#eeeded" />
+      <Label fx:id="axemanNumber" layoutX="831.0" layoutY="129.0" text="0" textFill="#f2eeee" />
+      <ImageView fitHeight="31.0" fitWidth="44.0" layoutX="704.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@gameImages/spearman.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="32.0" layoutX="751.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@gameImages/swordsman.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="32.0" layoutX="799.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@gameImages/axeman.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="720.0" layoutY="16.0" text="Nickname" textFill="#f5f3f3">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="264.0" layoutX="666.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@gameImages/wiocha.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="701.0" layoutY="365.0" text="Twoja wioska" textFill="#f2eeee">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="654.0" layoutY="314.0" mnemonicParsing="false" onAction="#goToVillageMap" prefHeight="137.0" prefWidth="248.0" style="-fx-background-color: FF000000;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label fx:id="attackPowerNumber" layoutX="748.0" layoutY="201.0" text="0" textFill="#f5f4f4" />
+      <Label fx:id="DefencePowerNumber" layoutX="813.0" layoutY="202.0" text="0" textFill="#f5f2f2" />
+      <ImageView fitHeight="29.0" fitWidth="30.0" layoutX="709.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@gameImages/swords.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="44.0" layoutX="771.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@gameImages/shield-icon.png" />
+         </image>
+      </ImageView>
+      <GridPane layoutX="86.0" layoutY="51.0" prefHeight="326.0" prefWidth="492.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+      <Button layoutX="723.0" layoutY="263.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="Attack" />
+   </children>
+</AnchorPane>

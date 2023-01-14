@@ -74,7 +74,7 @@ public class Main extends Application{
 		primaryStage.alwaysOnTopProperty();
 		primaryStage.requestFocus();
 		stage = primaryStage;
-		ViewController.setMenuView();
+		ViewController.setLoginView();
 	}
 
 }
