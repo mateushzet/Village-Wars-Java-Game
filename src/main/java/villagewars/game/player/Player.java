@@ -29,6 +29,15 @@ public class Player{
 		insert = new Insert(database);
 		update = new Update(database);
 	}
+
+	public Player(int villageID, int playerID, Connection database) {
+		village = new Village(villageID);
+		this.playerID = playerID;
+		select = new Select(database);
+		insert = new Insert(database);
+		update = new Update(database);
+	}
+
 	public String getNickname(){
 		return nickname;
 	}

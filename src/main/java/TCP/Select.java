@@ -85,6 +85,7 @@ public class Select {
             result.next();
             return result.getInt("rathaus_level");
         } catch (SQLException e) {
+            System.out.println(e);
             System.out.println("Warning: selectRathausLevel query failed!");
             return 0;
         }
@@ -209,11 +210,13 @@ public class Select {
             PreparedStatement stm = database.prepareStatement(query);
             stm.setString(1,new_nickname);
             ResultSet result = stm.executeQuery();
-            result.next();
-            if(result.getString("nickname").equals(new_nickname)){
+
+            if(result.next() == true){
                 return false;
             }else return true;
         } catch (SQLException e) {
+            System.out.println(e);
+            e.printStackTrace();
             System.out.println("Warning: selectVillageID query failed!");
             return false;
         }
