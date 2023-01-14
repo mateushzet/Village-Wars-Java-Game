@@ -24,29 +24,55 @@ public class Rathaus{
 
 
 	public void levelUp(String buildingName){
+		int res;
 		switch (buildingName){
+
 			case "rathaus":
-				Update.incrementBuildings(1,0,0,0,0,0,villageID);
+				res = neededResourcesToBuild(getLevel());
+				if(wareHouse.verifyResourcesAmount(res,res,res)){
+				Update.incrementBuildings(1, 0, 0, 0, 0, 0, villageID);
+				Update.decrementResources(res,res,res,villageID);
+			}
 				break;
 
 			case "barracks":
-				Update.incrementBuildings(0,0,1,0,0,0,villageID);
+				res = neededResourcesToBuild(barracks.getLevel());
+				if(wareHouse.verifyResourcesAmount(res,res,res)){
+					Update.incrementBuildings(0, 0, 1, 0, 0, 0, villageID);
+					Update.decrementResources(res,res,res,villageID);
+				}
 				break;
 
 			case "farm":
-				Update.incrementBuildings(0,0,0,1,0,0,villageID);
+				res = neededResourcesToBuild(farm.getLevel());
+				if(wareHouse.verifyResourcesAmount(res,res,res)){
+					Update.incrementBuildings(0, 0, 0, 1, 0, 0, villageID);
+					Update.decrementResources(res,res,res,villageID);
+				}
 				break;
 
 			case "mine":
-				Update.incrementBuildings(0,0,0,0,1,0,villageID);
+				res = neededResourcesToBuild(mine.getLevel());
+				if(wareHouse.verifyResourcesAmount(res,res,res)){
+					Update.incrementBuildings(0, 0, 0, 0, 1, 0, villageID);
+					Update.decrementResources(res,res,res,villageID);
+				}
 				break;
 
 			case "timbercamp":
-				Update.incrementBuildings(0,0,0,0,0,1,villageID);
+				res = neededResourcesToBuild(timberCamp.getLevel());
+				if(wareHouse.verifyResourcesAmount(res,res,res)){
+					Update.incrementBuildings(0, 0, 0, 0, 0, 1, villageID);
+					Update.decrementResources(res,res,res,villageID);
+				}
 				break;
 
 			case "warehouse":
-				Update.incrementBuildings(0,1,0,0,0,0,villageID);
+				res = neededResourcesToBuild(wareHouse.getLevel());
+				if(wareHouse.verifyResourcesAmount(res,res,res)){
+					Update.incrementBuildings(0, 1, 0, 0, 0, 0, villageID);
+					Update.decrementResources(res,res,res,villageID);
+				}
 				break;
 		}
 	}
@@ -73,5 +99,9 @@ public class Rathaus{
 
 	public int getLevel(){
 		return Select.rathausLevel(villageID);
+	}
+
+	public int neededResourcesToBuild(int level){
+	return level*level*100;
 	}
 };
