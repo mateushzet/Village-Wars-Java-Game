@@ -461,4 +461,23 @@ public class Main extends Application {
 		pw.println("getMaxID");
 		pw.flush();
 	}
+
+	static public int neededResourcesToBuild(String level){
+		try {
+		String output;
+		pw.println("neededResourcesToBuild");
+		pw.flush();
+		while ((output = bf.readLine()) == null) {}
+		pw.println(level);
+		pw.flush();
+
+			while ((output = bf.readLine()) == null) {}
+			return Integer.parseInt(output);
+
+		} catch (IOException e) {
+			return 0;
+		}
+	}
+
+
 }
