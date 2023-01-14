@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="910.0" style="-fx-background-color: #432109; -fx-background-image: &quot;C:\Users\k-zwo\Downloads\medieval-battle-knights-armor-helmets-swords-axes-great-combat-armored-ancient-warriors-against-castle-160946237.jpg&quot;;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="villagewars.game.controller.GameController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="910.0" style="-fx-background-color: #432109; -fx-background-image: &quot;C:\Users\k-zwo\Downloads\medieval-battle-knights-armor-helmets-swords-axes-great-combat-armored-ancient-warriors-against-castle-160946237.jpg&quot;;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="villagewars.game.controller.GameController">
    <children>
       <Pane fx:id="ratthausPane" layoutX="639.0" layoutY="47.0" prefHeight="244.0" prefWidth="254.0" style="-fx-background-color: white;">
          <children>
@@ -53,7 +53,7 @@
       <Label fx:id="woodNumber" layoutX="34.0" layoutY="15.0" text="0" textFill="#f2f0f0" />
       <Label fx:id="stoneNumber" layoutX="104.0" layoutY="15.0" text="0" textFill="#ebe7e7" />
       <Label fx:id="foodNumber" layoutX="177.0" layoutY="15.0" text="0" textFill="#fcf9f9" />
-      <Label layoutX="710.0" layoutY="6.0" text="Nickname" textFill="#f5f3f3">
+      <Label fx:id="nickNameLabel" layoutX="710.0" layoutY="6.0" text="Nickname" textFill="#f5f3f3">
          <font>
             <Font size="24.0" />
          </font>

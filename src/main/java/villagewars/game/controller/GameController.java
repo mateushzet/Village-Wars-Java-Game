@@ -97,6 +97,9 @@ public class GameController {
     @FXML
     private Label woodNumber1;
 
+    @FXML
+    private Label nickNameLabel;
+
     private ArrayList<Pane> lista = new ArrayList<>();
 
     @FXML
@@ -142,51 +145,52 @@ public class GameController {
 
     @FXML
     void increaseRathausLevel(ActionEvent event) {
-        Main.a.village.getRathaus().levelUp(Main.a.village.getRathaus());
+//        Main.a.village.getRathaus().levelUp(Main.a.village.getRathaus());
         updatePlayerStats();
     }
 
     @FXML
     void increaseAxeman(ActionEvent event) {
-        Main.a.village.getRathaus().getBarracks().recruitAxeman();
+//        Main.a.village.getRathaus().getBarracks().recruitAxeman();
         updatePlayerStats();
     }
 
     @FXML
     void increasePikeman(ActionEvent event) {
-        Main.a.village.getRathaus().getBarracks().recruitPikeman();
+//        Main.a.village.getRathaus().getBarracks().recruitPikeman();
         updatePlayerStats();
 
     }
 
     @FXML
     void increaseSwordsman(ActionEvent event) {
-        Main.a.village.getRathaus().getBarracks().recruitSwordsman();
+//        Main.a.village.getRathaus().getBarracks().recruitSwordsman();
         updatePlayerStats();
 
     }
 
     public void updatePlayerStats() {
-        axemanNumber.setText(String.valueOf(Main.a.village.getRathaus().getBarracks().getAxemans().getQuantity()));
-        pikemanNumber.setText(String.valueOf(Main.a.village.getRathaus().getBarracks().getPikemans().getQuantity()));
-        swordsmanNumber.setText(String.valueOf(Main.a.village.getRathaus().getBarracks().getSwordsmans().getQuantity()));
-        woodNumber.setText(String.valueOf(Main.a.village.getRathaus().getWareHouse().getWood()));
-        stoneNumber.setText(String.valueOf(Main.a.village.getRathaus().getWareHouse().getStone()));
-        foodNumber.setText(String.valueOf(Main.a.village.getRathaus().getWareHouse().getFood()));
-        woodNumber1.setText(String.valueOf(Main.a.village.getRathaus().getWareHouse().getWood()));
-        stoneNumber1.setText(String.valueOf(Main.a.village.getRathaus().getWareHouse().getStone()));
-        foodNumber2.setText(String.valueOf(Main.a.village.getRathaus().getWareHouse().getFood()));
-        rathausLevel.setText(String.valueOf(Main.a.village.getRathaus().getLevel()));
-        attackPowerNumber.setText(String.valueOf(Main.a.village.getRathaus().getBarracks().calculateAttackPower()));
-        DefencePowerNumber.setText(String.valueOf(Main.a.village.getRathaus().getBarracks().calculateDefencePower()));
-        woodNeededForUpgrade.setText(String.valueOf(Main.a.village.getRathaus().getLevel()*100));
-        stoneNeededForUpgrade.setText(String.valueOf(Main.a.village.getRathaus().getLevel()*100));
-        foodNeededForUpgrade.setText(String.valueOf(Main.a.village.getRathaus().getLevel()*100));
+//        axemanNumber.setText(String.valueOf(Main.a.village.getRathaus().getBarracks().getAxemans().getQuantity()));
+//        pikemanNumber.setText(String.valueOf(Main.a.village.getRathaus().getBarracks().getPikemans().getQuantity()));
+//        swordsmanNumber.setText(String.valueOf(Main.a.village.getRathaus().getBarracks().getSwordsmans().getQuantity()));
+//        woodNumber.setText(String.valueOf(Main.a.village.getRathaus().getWareHouse().getWood()));
+//        stoneNumber.setText(String.valueOf(Main.a.village.getRathaus().getWareHouse().getStone()));
+//        foodNumber.setText(String.valueOf(Main.a.village.getRathaus().getWareHouse().getFood()));
+//        woodNumber1.setText(String.valueOf(Main.a.village.getRathaus().getWareHouse().getWood()));
+//        stoneNumber1.setText(String.valueOf(Main.a.village.getRathaus().getWareHouse().getStone()));
+//        foodNumber2.setText(String.valueOf(Main.a.village.getRathaus().getWareHouse().getFood()));
+//        rathausLevel.setText(String.valueOf(Main.a.village.getRathaus().getLevel()));
+//        attackPowerNumber.setText(String.valueOf(Main.a.village.getRathaus().getBarracks().calculateAttackPower()));
+//        DefencePowerNumber.setText(String.valueOf(Main.a.village.getRathaus().getBarracks().calculateDefencePower()));
+//        woodNeededForUpgrade.setText(String.valueOf(Main.a.village.getRathaus().getLevel()*100));
+//        stoneNeededForUpgrade.setText(String.valueOf(Main.a.village.getRathaus().getLevel()*100));
+//        foodNeededForUpgrade.setText(String.valueOf(Main.a.village.getRathaus().getLevel()*100));
     }
 
     @FXML
     void initialize(){
-        Main.a.village.startResourcesProduction();
+//        Main.a.village.startResourcesProduction();
+        nickNameLabel.setText(Main.getNickname());
         Main.animation = new Timeline(new KeyFrame(Duration.seconds(1.0), e -> updatePlayerStats()));
         Main.animation.setCycleCount(Animation.INDEFINITE);
         Main.animation.playFromStart();
