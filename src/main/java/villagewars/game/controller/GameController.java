@@ -35,28 +35,79 @@ public class GameController {
     private Button farmButton;
 
     @FXML
+    private Label farmLevel;
+
+    @FXML
+    private Label farmLevelMine;
+
+    @FXML
+    private Label farmLevelRathaus;
+
+    @FXML
+    private Label farmLevelTimber;
+
+    @FXML
     private Pane farmPane;
 
     @FXML
     private Label foodNeededForUpgrade;
 
     @FXML
+    private Label foodNeededForUpgradeFarm;
+
+    @FXML
+    private Label foodNeededForUpgradeMine;
+
+    @FXML
+    private Label foodNeededForUpgradeTimber;
+
+    @FXML
     private Label foodNumber;
+
+    @FXML
+    private Label foodNumber1;
 
     @FXML
     private Label foodNumber2;
 
     @FXML
+    private Label foodProduction;
+
+    @FXML
     private Button mindButton;
 
     @FXML
+    private Label mineLevel;
+
+    @FXML
+    private Label mineLevelFarm;
+
+    @FXML
+    private Label mineLevelRathaus;
+
+    @FXML
+    private Label mineLevelTimber;
+
+    @FXML
     private Pane minePane;
+
+    @FXML
+    private Label nickNameLabel;
 
     @FXML
     private Label pikemanNumber;
 
     @FXML
     private Label rathausLevel;
+
+    @FXML
+    private Label rathausLevelFarm;
+
+    @FXML
+    private Label rathausLevelMine;
+
+    @FXML
+    private Label rathausLevelTimber;
 
     @FXML
     private Button ratthausButton;
@@ -68,16 +119,40 @@ public class GameController {
     private Label stoneNeededForUpgrade;
 
     @FXML
+    private Label stoneNeededForUpgradeFarm;
+
+    @FXML
+    private Label stoneNeededForUpgradeMine;
+
+    @FXML
+    private Label stoneNeededForUpgradeTimber;
+
+    @FXML
     private Label stoneNumber;
 
     @FXML
     private Label stoneNumber1;
 
     @FXML
+    private Label stoneProduction;
+
+    @FXML
     private Label swordsmanNumber;
 
     @FXML
     private Button timberCampButton;
+
+    @FXML
+    private Label timberCampLevel;
+
+    @FXML
+    private Label timberCampLevelFarm;
+
+    @FXML
+    private Label timberCampLevelMine;
+
+    @FXML
+    private Label timberCampLevelRathaus;
 
     @FXML
     private Pane timberCampPane;
@@ -92,13 +167,23 @@ public class GameController {
     private Label woodNeededForUpgrade;
 
     @FXML
+    private Label woodNeededForUpgradeFarm;
+
+    @FXML
+    private Label woodNeededForUpgradeMine;
+
+    @FXML
+    private Label woodNeededForUpgradeTimber;
+
+    @FXML
     private Label woodNumber;
 
     @FXML
     private Label woodNumber1;
 
     @FXML
-    private Label nickNameLabel;
+    private Label woodProduction;
+
 
     private ArrayList<Pane> lista = new ArrayList<>();
 
@@ -107,6 +192,20 @@ public class GameController {
         ViewController.setMapView();
     }
 
+    @FXML
+    void increaseFarmLevel(ActionEvent event) {
+
+    }
+
+    @FXML
+    void increaseMineLevel(ActionEvent event) {
+
+    }
+
+    @FXML
+    void increaseTimberCampLevel(ActionEvent event) {
+
+    }
     @FXML
     void showMineDetails(ActionEvent event){
         lista.forEach(pane -> pane.setVisible(false));
