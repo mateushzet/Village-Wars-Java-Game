@@ -48,7 +48,7 @@ public class MapController {
     private ImageView village1;
 
     @FXML
-    private Button village1Bth;
+    private Button village1Btn;
 
     @FXML
     private ImageView village2;
@@ -80,8 +80,17 @@ public class MapController {
     @FXML
     private Button village6Btn;
 
+    private Button[] villageButtons = {village1Btn,village2Btn,village3Btn,village4Btn,village5Btn,village6Btn};
+
+    private ImageView[] villageImages = {village1,village2,village3,village4,village5,village6};
+
+    private
+
     @FXML
     void attackPlayer(ActionEvent event) {
+        String id = ((Button) event.getSource()).getId();
+
+
 
     }
 

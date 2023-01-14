@@ -145,7 +145,7 @@
                   <Image url="@gameImages/wiocha.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="village1Bth" mnemonicParsing="false" onAction="#showVillage" prefHeight="70.0" prefWidth="100.0" style="-fx-background-color: FF000000;">
+            <Button fx:id="village1Btn" mnemonicParsing="false" onAction="#showVillage" prefHeight="70.0" prefWidth="100.0" style="-fx-background-color: FF000000;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
