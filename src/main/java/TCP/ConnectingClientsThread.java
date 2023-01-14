@@ -6,7 +6,7 @@ import java.sql.Connection;
 public class ConnectingClientsThread extends Thread{
 
     ServerSocket serverSocket;
-    final int MAX_PLAYERS_CAPACITY = 1000;
+    final int MAX_PLAYERS_CAPACITY = 7;
 
     Connection con;
 
