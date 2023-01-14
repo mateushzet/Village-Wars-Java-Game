@@ -399,6 +399,33 @@ public class Main extends Application {
 		return output;
 	}
 
+
+	static public int getDefencePower() {
+		try {
+			String output;
+			pw.println("getDefencePower");
+			pw.flush();
+			while ((output = bf.readLine()) == null) {}
+			return Integer.parseInt(output);
+
+		} catch (IOException e) {
+			return 0;
+		}
+	}
+
+	static public int getAttackPower() {
+		try {
+			String output;
+			pw.println("getAttackPower");
+			pw.flush();
+			while ((output = bf.readLine()) == null) {}
+			return Integer.parseInt(output);
+
+		} catch (IOException e) {
+			return 0;
+		}
+	}
+
 	static public void getMaxID() {
 		pw.println("getMaxID");
 		pw.flush();
