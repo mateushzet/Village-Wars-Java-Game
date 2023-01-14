@@ -15,6 +15,12 @@ public class ViewController {
 
     private static FXMLLoader gameViewLoader;
 
+    private static FXMLLoader mapViewLoader;
+
+    private static FXMLLoader loginViewLoader;
+
+    private static FXMLLoader registerViewLoader;
+
 
     public static void closeView() {
         Main.stage.close();
@@ -39,5 +45,18 @@ public class ViewController {
     public static void setGameView(){
         gameViewLoader = new FXMLLoader(Main.class.getResource("game-view.fxml"));
         setView(gameViewLoader, "Village wars");
+    }
+
+    public static void setMapView(){
+        mapViewLoader=new FXMLLoader(Main.class.getResource("map-view.fxml"));
+        setView(mapViewLoader, "Village wars2");
+    }
+    public static void setLoginView(){
+        loginViewLoader=new FXMLLoader(Main.class.getResource("login-view.fxml"));
+        setView(loginViewLoader, "Login");
+    }
+    public static void setRegisterView(){
+        registerViewLoader=new FXMLLoader(Main.class.getResource("register-view.fxml"));
+        setView(registerViewLoader, "Register");
     }
 }
