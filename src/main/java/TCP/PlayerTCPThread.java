@@ -118,6 +118,7 @@ public class PlayerTCPThread extends Thread{
                 while ((clientMethod = bf.readLine()) == null){}
 
                 output = new String();
+                int numberOutput;
 
                 switch(clientMethod){
                     case "getWoodProduction":
@@ -255,6 +256,18 @@ public class PlayerTCPThread extends Thread{
                     case "getPlayerID":
                         output = loggedPlayer.getNickname();
                         pw.println(output);
+                        pw.flush();
+                        break;
+
+                    case "getDefencePower":
+                        numberOutput = loggedPlayer.village.getBarracks().calculateDefencePower();
+                        pw.println(numberOutput);
+                        pw.flush();
+                        break;
+
+                    case "getAttackPower":
+                        numberOutput = loggedPlayer.village.getBarracks().calculateAttackPower();
+                        pw.println(numberOutput);
                         pw.flush();
                         break;
                 }
