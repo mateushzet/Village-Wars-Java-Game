@@ -41,7 +41,6 @@ public class Main extends Application {
 		bf = new BufferedReader(in);
 
 		System.out.println("Oczekiwanie na polaczenie" + System.lineSeparator());
-		login("kamil", "piesek");
 
 		launch(args);
 	}
@@ -350,6 +349,34 @@ public class Main extends Application {
 	static public void incrementWareHouse() {
 		pw.println("incrementWareHouse");
 		pw.flush();
+	}
+
+	static public String getNickname() {
+		String output;
+		pw.println("getNickname");
+		pw.flush();
+		while (true) {
+			try {
+				if (!((output = bf.readLine()) == null)) break;
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		}
+		return output;
+	}
+
+	static public String getPlayerID() {
+		String output;
+		pw.println("getPlayerID");
+		pw.flush();
+		while (true) {
+			try {
+				if (!((output = bf.readLine()) == null)) break;
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		}
+		return output;
 	}
 
 }

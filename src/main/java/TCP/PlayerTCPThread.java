@@ -211,6 +211,18 @@ public class PlayerTCPThread extends Thread{
                     case "incrementWareHouse":
                         loggedPlayer.village.getRathaus().levelUp("warehouse");
                         break;
+
+                    case "getNickname":
+                        output = loggedPlayer.getNickname();
+                        pw.println(output);
+                        pw.flush();
+                        break;
+
+                    case "getPlayerID":
+                        output = loggedPlayer.getNickname();
+                        pw.println(output);
+                        pw.flush();
+                        break;
                 }
             }
 
@@ -256,9 +268,5 @@ public class PlayerTCPThread extends Thread{
 
     private int getStoneProduction(int village_id){
         return select.mineLevel(village_id)*10;
-    }
-
-    private void recruitPikeman(){
-
     }
 }

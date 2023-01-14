@@ -3,6 +3,9 @@ package villagewars.game.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import villagewars.Main;
+
+import java.io.IOException;
 
 public class LoginController {
 
@@ -15,7 +18,13 @@ public class LoginController {
 
     @FXML
     void onLogin(ActionEvent event) {
-        ViewController.setMenuView();
+        try {
+            if(Main.login(loginName.getText(), loginPassword.getText())){
+                ViewController.setGameView();
+            };
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
