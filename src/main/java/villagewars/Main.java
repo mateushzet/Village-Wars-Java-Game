@@ -77,6 +77,26 @@ public class Main extends Application {
 		return (output.equals("true")) ? true : false;
 	}
 
+	static public boolean registration(String nickname, String password) throws IOException {
+
+		String output;
+		pw.println("registration");
+		pw.flush();
+		while ((output = bf.readLine()) == null) {
+		}
+		pw.println(nickname);
+		pw.flush();
+
+		while ((output = bf.readLine()) == null) {
+		}
+		pw.println(password);
+		pw.flush();
+
+		while ((output = bf.readLine()) == null) {
+		}
+		return (output.equals("true")) ? true : false;
+	}
+
 	//---------------- Select methods
 
 	static public String getWoodProduction() {
