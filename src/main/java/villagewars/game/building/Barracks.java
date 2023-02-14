@@ -12,6 +12,7 @@ public class Barracks{
 	Soldiers pikemans;
 	Soldiers swordsmans;
 	Soldiers axemans;
+
 	public Barracks(WareHouse wareHouse, int villageID) {
 		this.wareHouse = wareHouse;
 		this.villageID = villageID;
@@ -32,7 +33,7 @@ public class Barracks{
 	int SWORDSMAN_LOOT_CAPACITY = 50;
 
 	int AXEMAN_ATTACK_POWER = 200;
-	int AXEMAN_DEFENCE_POWER = 20;
+	int AXEMAN_DEFENCE_POWER = 40;
 	int AXEMAN_LOOT_CAPACITY = 25;
 			
 

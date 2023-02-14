@@ -61,11 +61,15 @@ public class PlayerTCPThread extends Thread{
                         }
                         password = output;
                         loggedPlayer = loadPlayer(nickname, password, database);
-                        villageID = loggedPlayer.getVillageID();
                         if (loggedPlayer != null) {
+                            villageID = loggedPlayer.getVillageID();
                             notLogged = false;
                             System.out.println("zalogowano");
-                        } else System.out.println("Info: wrong login input");
+                        } else {
+                            System.out.println("Info: wrong login input");
+                            pw.println("false");
+                            pw.flush();
+                        }
                     }else if(output.equals("registration")) {
 
                         pw.println("sendMeLogin");
