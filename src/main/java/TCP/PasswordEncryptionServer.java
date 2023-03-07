@@ -9,11 +9,14 @@ public class PasswordEncryptionServer {
 
     private static SecretKey key;
 
+    public static SecretKey getKey() {
+        return key;
+    }
+
     public PasswordEncryptionServer() throws Exception{
 
         // Generate a secret key for encryption and decryption
         key = KeyGenerator.getInstance("AES").generateKey();
-
 
 //        String encryptedPassword = encrypt(originalPassword);
 //        System.out.println("Encrypted password: " + encryptedPassword);

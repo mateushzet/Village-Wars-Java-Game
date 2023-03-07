@@ -1,5 +1,6 @@
 package villagewars;
 
+import TCP.PasswordEncryptionServer;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -7,10 +8,9 @@ import javafx.stage.Stage;
 import villagewars.game.controller.ViewController;
 import villagewars.game.player.Player;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -28,6 +28,7 @@ public class Main extends Application {
 	public static Stage stage;
 	public static Scene scene;
 	public static Timeline animation;
+	public static PasswordEncryptionClient passwordEncryptionClient;
 	//public static Player a = new Player("MyNickname", "MyPassword", con);
 
 	public static void main(String[] args) throws Exception {
@@ -41,6 +42,18 @@ public class Main extends Application {
 		bf = new BufferedReader(in);
 
 		System.out.println("Oczekiwanie na polaczenie" + System.lineSeparator());
+
+		passwordEncryptionClient = new PasswordEncryptionClient();
+
+		// Odbieranie SecretKey od serwera
+		InputStream inputStream = socket.getInputStream();
+		byte[] secretKeyBytes = new byte[32];
+		inputStream.read(secretKeyBytes);
+
+		// Konwertowanie tablicy bajtów na SecretKey
+		SecretKey secretKey = new SecretKeySpec(secretKeyBytes, "AES");
+
+		passwordEncryptionClient.setKey(secretKey);
 
 		launch(args);
 	}
@@ -69,8 +82,11 @@ public class Main extends Application {
 
 		while ((output = bf.readLine()) == null) {
 		}
-		pw.println(password);
-		pw.flush();
+
+		try{
+			pw.println(passwordEncryptionClient.encrypt(password));
+			pw.flush();
+		}catch(Exception e){ System.out.println(e);}
 
 		while ((output = bf.readLine()) == null) {
 		}
@@ -88,8 +104,11 @@ public class Main extends Application {
 
 		while ((output = bf.readLine()) == null) {
 		}
-		pw.println(password);
-		pw.flush();
+
+		try{
+			pw.println(passwordEncryptionClient.encrypt(password));
+			pw.flush();
+		}catch(Exception e){ System.out.println(e);}
 
 		while ((output = bf.readLine()) == null) {
 		}
@@ -414,7 +433,6 @@ public class Main extends Application {
 		}
 		return output;
 	}
-
 
 	static public int getDefencePower() {
 		try {

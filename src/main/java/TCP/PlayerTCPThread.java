@@ -44,6 +44,15 @@ public class PlayerTCPThread extends Thread{
             Player loggedPlayer = null;
             boolean notLogged = true;
 
+            PasswordEncryptionServer passwordEncryptor = new PasswordEncryptionServer();
+
+            // Konwertowanie SecretKey na tablicę bajtów
+            byte[] secretKeyBytes = passwordEncryptor.getKey().getEncoded();
+
+        // Przesyłanie SecretKey do klienta
+            OutputStream outputStream = mySocket.getOutputStream();
+            outputStream.write(secretKeyBytes);
+            outputStream.flush();
 
             // login or registration
             while (notLogged){
@@ -59,7 +68,8 @@ public class PlayerTCPThread extends Thread{
 
                         while ((output = bf.readLine()) == null) {
                         }
-                        password = output;
+                        password = passwordEncryptor.decrypt(output);
+
                         loggedPlayer = loadPlayer(nickname, password, database);
                         if (loggedPlayer != null) {
                             villageID = loggedPlayer.getVillageID();
@@ -83,7 +93,7 @@ public class PlayerTCPThread extends Thread{
                             pw.flush();
 
                             while ((output = bf.readLine()) == null) {}
-                            password = output;
+                            password = passwordEncryptor.decrypt(output);
 
                             insert.player(password, nickname);
                             int tempPlayerID = select.playerID(nickname);
