@@ -43,9 +43,9 @@ public class Main extends Application {
 
 		System.out.println("Oczekiwanie na polaczenie" + System.lineSeparator());
 
+		//-------- Odbieranie SecretKey od serwera
 		passwordEncryptionClient = new PasswordEncryptionClient();
 
-		// Odbieranie SecretKey od serwera
 		InputStream inputStream = socket.getInputStream();
 		byte[] secretKeyBytes = new byte[32];
 		inputStream.read(secretKeyBytes);

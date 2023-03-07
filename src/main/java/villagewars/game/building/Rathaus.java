@@ -2,7 +2,7 @@ package villagewars.game.building;
 
 import TCP.Select;
 import TCP.Update;
-import com.sun.org.apache.xerces.internal.parsers.SecurityConfiguration;
+
 
 public class Rathaus {
 	public Select select = new Select();
