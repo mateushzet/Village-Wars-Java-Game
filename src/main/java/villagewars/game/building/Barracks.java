@@ -57,15 +57,7 @@ public class Barracks{
 			wareHouse.decreaseResources(50,50,50);
 			}
 		}
-	
-	public void printArmy(){
-		System.out.println("Your army:");
-		System.out.println("Pikemans: " + pikemans.getQuantity());
-		System.out.println("Swordsmans: " + swordsmans.getQuantity());
-		System.out.println("Axemans: " + axemans.getQuantity());
-		System.out.println("Defence power: " + calculateDefencePower());
-		System.out.println("Attack power: " + calculateAttackPower());
-	}
+
 	
 	public int calculateDefencePower(){
 		int power = swordsmans.getDefencePower() + pikemans.getDefencePower() + axemans.getDefencePower();
