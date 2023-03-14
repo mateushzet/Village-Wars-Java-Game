@@ -1,5 +1,4 @@
 # Village-Wars-Java-Game
 University project.
 
-
-![image](https://user-images.githubusercontent.com/81648948/225098681-a3d2228b-e41b-4938-a55d-2523c1b7db34.png)
+The topic of our project was to create a multiplayer game based on client-server architecture. Players take on the roles of village leaders and fight for domination on the world map. The goal of the game is to develop their village, build armies, and attack other players to gain resources and advantage over new opponents.In the game "village wars," players control their village as their base of operations. The village is a place where they can build buildings, recruit units, and gather resources such as wood, food, and stone. These resources are needed to expand and maintain the village as well as recruit armies.There are three types of units available (spearmen, swordsmen, and axemen), which players can recruit or use to attack other villages. These units differ in attack strength, defense, and carrying capacity of looted resources, among other factors.
