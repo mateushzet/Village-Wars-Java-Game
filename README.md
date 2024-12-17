@@ -1,5 +1,5 @@
 # Village-Wars-Java-Game
-University project.
+### University group project.
 
 The topic of our project was to create a multiplayer game based on client-server (TCP) architecture. 
 
